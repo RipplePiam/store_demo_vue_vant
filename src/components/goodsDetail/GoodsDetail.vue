@@ -1,9 +1,4 @@
 <!--
- * @Author: 极客James
- * @Motto: 求知若渴,虚心若愚
- * @Github: https://github.com/Geek-James/ddBuy
- * @掘金: https://juejin.im/user/5c4ebc72e51d4511dc7306ce
- * @LastEditTime : 2020-01-04 15:32:56
  * @Description: 商品详情页 由于是Mock数据->通过上级页面通过路由的query传值 
  * @supplement   企业开发,只需要拿到商品的id然后请求获取数据
  * @FilePath: /ddBuy-dev/src/components/goodsDetail/GoodsDetail.vue

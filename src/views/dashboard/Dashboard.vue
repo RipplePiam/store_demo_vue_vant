@@ -1,9 +1,4 @@
 <!--
- * @Author: 极客James
- * @Motto: 求知若渴,虚心若愚
- * @Github: https://github.com/Geek-James/ddBuy
- * @掘金: https://juejin.im/user/5c4ebc72e51d4511dc7306ce
- * @LastEditTime: 2020-03-11 22:27:03
  * @Description: 项目根入口
  * @FilePath: /ddBuy-dev/src/views/dashboard/Dashboard.vue
  -->
@@ -45,7 +40,6 @@ import { setLocalStore, getLocalStore } from '../../config/global.js'
 import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   name: 'DashBoard',
-  mounted() {},
   created() {
     //通过路由跳转绑定Tabbar的选中
     this.tabbarSelected(this.$route.name)

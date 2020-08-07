@@ -1,9 +1,4 @@
 <!--
- * @Author: 极客James
- * @Motto: 求知若渴,虚心若愚
- * @Github: https://github.com/Geek-James/ddBuy
- * @掘金: https://juejin.im/user/5c4ebc72e51d4511dc7306ce
- * @LastEditTime: 2020-03-11 22:06:51
  * @Description: 吃什么页面骨架屏
  * @FilePath: /ddBuy-dev/src/views/eat/Skeleton/index.vue
  * @Quote :https://danilowoz.com/create-content-loader/            

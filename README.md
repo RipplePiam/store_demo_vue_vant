@@ -21,17 +21,6 @@
   </a>
 </p>
 
-简体中文 | [English](https://github.com/Geek-James/ddBuy/blob/master/README.en.md)
-
-
-📣📣 **下一个开源项目正在创作中,扫面下方二维码，第一时间获取最新开源动态**
-
-### 和作者交朋友
-
-| 学习群                                                                                                | 公众号
-| ----------------------------------------------------------------------------------------------------- | --|
-| <img width="360px" src="http://518taole.7-orange.cn/hitron/me.gif"/> |<img width="360px" src="http://518taole.7-orange.cn/hitron/gz.png">
-
 
 ## 简介
 
@@ -78,7 +67,6 @@
 **欢迎提Bug,如有新的需求和想法，欢迎 issue 和 pr**
 
 ## 完整项目图
-[项目架构树](https://github.com/Geek-James/ddBuy/blob/master/README.structure.md)
 
 ![image](http://518taole.7-orange.cn/homePage.jpg)
 
@@ -118,18 +106,7 @@ npm run build
 ## 手机端扫码预览
 ![](http://518taole.7-orange.cn/qrcode.gif)
 
-## Star历史
-[![Stargazers over time](https://starchart.cc/Geek-James/ddBuy.svg)](https://starchart.cc/Geek-James/ddBuy)
-
-## 浏览器支持
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Safari |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IE10, IE11, Edge                                                                                                                                                                                                 | last 2 versions                                                                                                                                                                                                    | last 2 versions                                                                                                                                                                                                | last 2 versions                                                                                                                                                                                                |
-
-### 访问量
-<img src="https://visitor-badge.glitch.me/badge?page_id=Geek-James/ddBuy"/>
-
+                                                                                                                                                                                         | last 2 versions                                                                                                                                                                                                    | last 2 versions                                                                                                                                                                                                | last 2 versions                                                                                                                                                                                                |
 ## MIT许可协议
 
 [MIT](https://github.com/Geek-James/ddBuy/blob/master/LICENSE)
