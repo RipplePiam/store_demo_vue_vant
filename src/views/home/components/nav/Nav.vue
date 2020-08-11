@@ -1,6 +1,6 @@
 <!--
  * @Description: 首页->Nav组件
- * @FilePath: /ddBuy/src/views/home/components/nav/Nav.vue
+ * @FilePath: /src/views/home/components/nav/Nav.vue
  -->
 <template>
   <div id="wrapper">

@@ -1,6 +1,6 @@
 <!--
  * @Description: 我的->我的订单
- * @FilePath: /ddBuy/src/views/mine/Children/MyOrder.vue
+ * @FilePath: /src/views/mine/Children/MyOrder.vue
  -->
 <template>
   <div id="myOrder">

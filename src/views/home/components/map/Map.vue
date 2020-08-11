@@ -1,6 +1,6 @@
 <!--
  * @Description: 地图
- * @FilePath: /ddBuy/src/views/home/components/map/Map.vue
+ * @FilePath: /src/views/home/components/map/Map.vue
  -->
 <template>
   <div id="map">

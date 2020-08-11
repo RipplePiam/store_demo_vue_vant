@@ -1,6 +1,6 @@
 <!--
  * @Description: 瀑布流及上拉加载
- * @FilePath: /ddBuy/src/views/eat/components/MenuWaterFall.vue
+ * @FilePath: /src/views/eat/components/MenuWaterFall.vue
  -->
 <template>
   <div class="container-water-fall">
@@ -10,7 +10,7 @@
       <div class="cell-item"
            v-for="(item,index) in data"
            :key="item.id">
-        <img v-lazy="item.image">
+        <img v-lazy="item.image" alt="">
         <div class="item-body">
           <div class="item-desc">{{item.name}}</div>
           <div class="item-footer">
@@ -26,7 +26,7 @@
 </template>
 
 <script type="text/javascript">
-import { getTodayMenuDetail } from './../../../serve/api/index.js'
+import { getTodayMenuDetail } from '@/serve/api'
 import { Toast } from 'vant';
 
 export default {
@@ -42,7 +42,7 @@ export default {
   },
   mounted () {
     this._initData();
-    console.log("🎉 https://github.com/Geek-James/ddBuy 工作再忙也要按时吃饭 ✨✨");
+    console.log("🎉 欢迎使用~~ ✨✨");
   },
   methods: {
     // 1.数据请求
@@ -113,7 +113,7 @@ export default {
     .item-body {
       padding: 0.6rem;
       .item-desc {
-        font-size: 0.8 rem;
+        font-size: 0.8rem;
         color: #333333;
         line-height: 1rem;
         font-weight: bold;

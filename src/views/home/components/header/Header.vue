@@ -1,6 +1,6 @@
 <!--
  * @Description: 首页->顶部搜索栏
- * @FilePath: /ddBuy-dev/src/views/home/components/header/Header.vue
+ * @FilePath: /src/views/home/components/header/Header.vue
  -->
 <template>
   <div class="wrapper"
@@ -38,8 +38,8 @@
 </template>
 <script type="text/javascript">
 import PubSub from 'pubsub-js'
-import { LOCATION_ADDRESS } from '../../../../config/pubsub_type'
-import { getLocalStore } from '../../../../config/global'
+import { LOCATION_ADDRESS } from '@/config/pubsub_type'
+import { getLocalStore } from '@/config/global'
 
 export default {
   data () {
@@ -55,11 +55,11 @@ export default {
       window.addEventListener('scroll', that.handleScroll)
     });
     PubSub.subscribe(LOCATION_ADDRESS, (msg, data) => {
-      if (msg == LOCATION_ADDRESS) {
+      if (msg === LOCATION_ADDRESS) {
         this.location = data;
       }
     })
-    console.log("🎉 https://github.com/Geek-James/ddBuy 来了老弟~~ ✨✨");
+    console.log("🎉 欢迎使用~~ ✨✨");
   },
   methods: {
     handleScroll () {
@@ -67,12 +67,7 @@ export default {
       //垂直滚动的值兼容问题
       let scrollTopE = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
       let screenHeight = window.screen.availHeight
-      if (scrollTopE > 168) {
-        // 添加搜索栏颜色
-        this.showBgColor = true;
-      } else {
-        this.showBgColor = false;
-      }
+      this.showBgColor = scrollTopE > 168;
     },
     // 到搜索界面
     goSearch () {
@@ -130,7 +125,7 @@ export default {
   min-width: 23%;
   background-color: black;
   border-radius: 3.125rem;
-  flex: 0, 0, 20rem;
+  flex: 20rem;
 }
 
 .locationWrapper .address {

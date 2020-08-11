@@ -1,6 +1,6 @@
 <!--
  * @Description: 订单模块
- * @FilePath: /ddBuy/src/views/order/Order.vue
+ * @FilePath: /src/views/order/Order.vue
  -->
 <template>
   <div id="order">
@@ -37,8 +37,7 @@
           </ul>
         </div>
         <ul class="productCount">
-          <span>{{selectedCount}}
-          </span>
+          <span>{{selectedCount}}</span>
           <van-icon name="arrow" />
         </ul>
       </div>
@@ -138,7 +137,7 @@
                  type="textarea"
                  :placeholder="$t('order.tip')"
                  rows="1"
-                 autosize
+                 autosize="1"
                  is-link />
     </van-cell-group>
 
@@ -241,6 +240,7 @@ export default {
     actualPrice () {
       // 如果用户使用积分兑换或使用优惠券
       let finalPrice;
+      finalPrice=finalPrice+0;
       return finalPrice;//add
       /*
       if (this.checked) {
@@ -280,7 +280,7 @@ export default {
     }
     // 订阅发布的通知
     PubSub.subscribe(CHOOSE_USER_ADDRESS, (msg, data) => {
-      if (msg == CHOOSE_USER_ADDRESS) {
+      if (msg === CHOOSE_USER_ADDRESS) {
         // 修改卡片类型
         this.address_type = 'edit';
         this.address_name = data.name;
@@ -340,6 +340,8 @@ export default {
           duration: 800
         });
       }
+
+      // 后续缺失付款等页面
     },
 
     // 4.switch开关

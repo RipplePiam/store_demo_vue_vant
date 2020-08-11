@@ -1,6 +1,6 @@
 <!--
  * @Description: 首页->Tip组件
- * @FilePath: /ddBuy/src/views/home/components/tip/Tip.vue
+ * @FilePath: /src/views/home/components/tip/Tip.vue
  -->
 <template>
   <div id="tip">

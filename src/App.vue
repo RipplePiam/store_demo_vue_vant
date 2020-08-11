@@ -1,6 +1,6 @@
 <!--
  * @Description: 入口
- * @FilePath: /ddBuy-dev/src/App.vue
+ * @FilePath: /src/App.vue
 --> 
 
 <template>

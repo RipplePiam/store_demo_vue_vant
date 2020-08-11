@@ -1,6 +1,6 @@
 <!--
  * @Description: 首页->TabBar组件
- * @FilePath: /ddBuy/src/views/home/components/tabbar/TabbarGoodsItem.vue
+ * @FilePath: /src/views/home/components/tabbar/TabbarGoodsItem.vue
  -->
 <template>
   <div id="tabbarItem">

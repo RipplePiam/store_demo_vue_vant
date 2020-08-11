@@ -1,6 +1,6 @@
 <!--
  * @Description: 我的->我的订单->订单类型
- * @FilePath: /ddBuy/src/views/mine/Children/MyOrderChildren/OrderType.vue
+ * @FilePath: /src/views/mine/Children/MyOrderChildren/OrderType.vue
  -->
 <template>
   <div id="orderType">
@@ -10,7 +10,7 @@
          class="noDataPlaceHold">
       <img src="./../../../../images/mine/noData.jpeg"
            alt="">
-      <span class="desc">{{$t('mine.feedbackTip')}}</span>
+      <span class="desc">{{$t('mine.feedbackTip')}}</span><!--msg:暂时还没有相关订单-->
     </div>
   </div>
 </template>

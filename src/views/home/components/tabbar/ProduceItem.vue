@@ -1,6 +1,6 @@
 <!--
  * @Description: 首页->产品列表
- * @FilePath: /ddBuy/src/views/home/components/tabbar/ProduceItem.vue
+ * @FilePath: /src/views/home/components/tabbar/ProduceItem.vue
  -->
 <template>
   <div id="produceItem">

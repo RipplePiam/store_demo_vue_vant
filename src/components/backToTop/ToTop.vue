@@ -1,6 +1,6 @@
 <!--
- * @Description: 回到顶部组件
- * @FilePath: /ddBuy-dev/src/components/backToTop/ToTop.vue
+ * @Description: 返回顶部组件
+ * @FilePath: /src/components/backToTop/ToTop.vue
  -->
 <template>
   <transition name="moveR">
@@ -29,7 +29,8 @@ export default {
   },
   computed: {
     showTop: function () {
-      let value = this.scrollTop > 200 ? true : false;
+      let value;
+      value = this.scrollTop > 200;
       return value;
     },
   },
@@ -40,7 +41,7 @@ export default {
   methods: {
     //回到顶部
     toTop () {
-      var timer = setInterval(function () {
+      let timer = setInterval(function () {
         let osTop = document.documentElement.scrollTop || document.body.scrollTop;
         let ispeed = Math.floor(-osTop / 5);
         document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;

@@ -1,6 +1,6 @@
 <!--
  * @Description: 首页->特色专区
- * @FilePath: /ddBuy/src/views/home/components/special/SpecialZone.vue
+ * @FilePath: /src/views/home/components/special/SpecialZone.vue
  -->
 <template>
   <div id="specialZone">

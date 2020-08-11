@@ -1,3 +1,7 @@
+<!--
+ * @Description: 加载动画组件
+ * @FilePath: /src/views/home/Home.vue
+ -->
 <template>
   <div class="loader-layer"
        :class="show?'active':''">

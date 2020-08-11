@@ -1,6 +1,6 @@
 <!--
  * @Description: 项目根入口
- * @FilePath: /ddBuy-dev/src/views/dashboard/Dashboard.vue
+ * @FilePath: /src/views/dashboard/Dashboard.vue
  -->
 <template>
   <div id="dashboard">
@@ -14,15 +14,15 @@
       <van-tabbar-item
         v-for="(item, index) in tabbars"
         :key="index"
-        :id="index == 3 ? 'buycar' : ''"
+        :id="index === 3 ? 'buycar' : ''"
         @click="tab(index, item.name)"
-        :info="item.name == 'cart' ? goodsNum : ''"
+        :info="item.name === 'cart' ? goodsNum : ''"
       >
-        <span :class="currIndex == index ? active : ''">{{
+        <span :class="currIndex === index ? active : ''">{{
           $t(item.title)
         }}</span>
         <template slot="icon" slot-scope="props">
-          <img :src="props.active ? item.active : item.normal" />
+          <img :src="props.active ? item.active : item.normal"  alt=""/>
         </template>
       </van-tabbar-item>
     </van-tabbar>
@@ -31,19 +31,21 @@
     <keep-alive>
       <router-view v-if="$route.meta.keepAlive" />
     </keep-alive>
-    <router-view v-if="!$route.meta.keepAlive" />
+      <router-view v-if="!$route.meta.keepAlive" />
   </div>
 </template>
 
 <script type="text/javascript">
-import { setLocalStore, getLocalStore } from '../../config/global.js'
+import { setLocalStore, getLocalStore } from '@/config/global'
 import { mapState, mapMutations, mapActions } from 'vuex'
+
 export default {
   name: 'DashBoard',
   created() {
     //通过路由跳转绑定Tabbar的选中
     this.tabbarSelected(this.$route.name)
   },
+
   watch: {
     // 监听路由变化,保证路由跳转Tabbar选中正常
     $route: {
@@ -53,6 +55,7 @@ export default {
     },
     deep: true
   },
+
   data() {
     return {
       currIndex: 0,
@@ -70,12 +73,14 @@ export default {
           normal: require('@/images/tabbar/category_default.png'),
           active: require('@/images/tabbar/category_selected.png')
         },
+          /*
         {
           name: 'eat',
           title: 'home.eat',
           normal: require('@/images/tabbar/eat_default.png'),
           active: require('@/images/tabbar/eat_selected.png')
         },
+           */
         {
           name: 'cart',
           title: 'home.cart',
@@ -92,10 +97,13 @@ export default {
       ]
     }
   },
+
   components: {},
+
   mounted() {
     this._initData()
   },
+
   computed: {
     ...mapState(['shopCart'], ['userInfo']),
     goodsNum() {
@@ -108,9 +116,10 @@ export default {
       }
     }
   },
+
   methods: {
     // 0. 延展mutations方法
-    ...mapMutations(['INIT_SHOP_CART', 'INIT_USER_INFO']),
+    ...mapMutations(['INIT_SHOP_CART', 'INIT_USER_INFO']),//Vuex突变
     // 1.点击tabbar触发的方法
     tab(index, val) {
       this.currIndex = index
@@ -125,9 +134,9 @@ export default {
       const mapType = {
         home: 0,
         category: 1,
-        eat: 2,
-        cart: 3,
-        mine: 4
+        //eat: 2,
+        cart: 2,
+        mine: 3
       }
       this.active = mapType[item]
     }
@@ -215,6 +224,6 @@ export default {
   }
 }
 .moveToCart {
-  animation: mymove 0.5s ease-in-out;
+  animation: mymove 0.5s ease-in-out;//动画
 }
 </style>

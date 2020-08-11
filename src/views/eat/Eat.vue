@@ -1,6 +1,6 @@
 <!--
  * @Description: 吃什么模块
- * @FilePath: /ddBuy/src/views/eat/Eat.vue
+ * @FilePath: /src/views/eat/Eat.vue
  -->
 <template>
   <div class="eatWrapper">
@@ -31,6 +31,6 @@ export default {
 
 <style lang="less" scoped>
 #eatWrapper {
-  background-color: "#f5f5f5";
+  background-color: #f5f5f5;
 }
 </style>

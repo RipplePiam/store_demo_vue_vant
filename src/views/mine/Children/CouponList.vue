@@ -1,6 +1,6 @@
 <!--
  * @Description: 我的->我的优惠券
- * @FilePath: /ddBuy/src/views/mine/Children/CouponList.vue
+ * @FilePath: /src/views/mine/Children/CouponList.vue
  -->
 <template>
   <div id="couponList">

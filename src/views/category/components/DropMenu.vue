@@ -1,6 +1,6 @@
 <!--
  * @Description: 分类模块->可滑动标题详情组件
- * @FilePath: /ddBuy/src/views/category/components/DropMenu.vue
+ * @FilePath: /src/views/category/components/DropMenu.vue
  -->
 <template>
   <div id="dropMenu"

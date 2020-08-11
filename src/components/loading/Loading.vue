@@ -1,4 +1,9 @@
- <template>
+<!--
+ * @Description: Loading 加载组件
+ * @FilePath: /src/views/home/Home.vue
+ -->
+
+<template>
   <div class="loading_container">
     <div class="load_img"
          :style="{backgroundPositionY: -(positionY%7)*2.5 + 'rem'}">

@@ -4,7 +4,7 @@ import {
 import {
     getLocalStore,
     setLocalStore
-} from './../config/global'
+} from '@/config/global'
 
 export default {
     // 1.同步用户信息

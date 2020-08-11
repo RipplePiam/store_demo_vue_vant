@@ -1,6 +1,6 @@
 <!--
  * @Description: 吃什么->今日菜单
- * @FilePath: /ddBuy-dev/src/views/eat/components/TodayMenu.vue
+ * @FilePath: /src/views/eat/components/TodayMenu.vue
  -->
 <template>
   <div>

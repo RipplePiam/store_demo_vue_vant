@@ -1,6 +1,6 @@
 <!--
  * @Description: 我的
- * @FilePath: /ddBuy/src/views/mine/Mine.vue
+ * @FilePath: /src/views/mine/Mine.vue
  -->
 <template>
   <div id="mine">
@@ -23,7 +23,7 @@
                  alt="">
             <div class="sex"
                  v-if="userInfo.sex">
-              <img :src="userInfo.sex=='1'?user_image.female:user_image.male"
+              <img :src="userInfo.sex==='1'?user_image.female:user_image.male"
                    alt="">
             </div>
             <div class="personInfo"
@@ -56,12 +56,13 @@
                 @click="goTomyOrder(-1)">
       </van-cell>
       <!--4个icon订单状态-->
-      <van-grid :border=false>
-        <van-grid-item v-for="(order,index) in orderData"
-                       :key="index"
-                       :icon="order.icon"
-                       :text="$t(order.title)"
-                       @click="goTomyOrder(index)" />
+      <van-grid :border=false :column-num="3"><!--自定义3列，不显示边框-->
+        <van-grid-item
+            v-for="(order,index) in orderData"
+            :key="index"
+            :icon="order.icon"
+            :text="$t(order.title)"
+            @click="goTomyOrder(index)" />
       </van-grid>
     </van-cell-group>
 
@@ -122,7 +123,7 @@
 // 引入vuex
 import { mapState } from 'vuex'
 import { Dialog, Toast } from 'vant'
-import { _VERSION_ } from './../../config/global'
+import { _VERSION_ } from '@/config/global'
 
 export default {
   data () {
@@ -152,8 +153,8 @@ export default {
     ...mapState(['userInfo']),
     phoneNumber () {
       // 设置隐藏手机号中间四位
-      var mobile = String(this.userInfo.phone)
-      var reg = /^(\d{3})\d{4}(\d{4})$/
+      let mobile = String(this.userInfo.phone)
+      let reg = /^(\d{3})\d{4}(\d{4})$/
       return mobile.replace(reg, '$1****$2')
     }
   },
@@ -206,9 +207,9 @@ export default {
     color: grey;
     line-height: 2rem;
   }
-  /*顶部信息栏*/
+  /*顶部标题栏*/
   .van-nav-bar {
-    background-color: white;//#3bba63
+    background-color: #3bba63;//#3bba63
     font-size: 0.6rem;
   }
   .van-nav-bar__title {

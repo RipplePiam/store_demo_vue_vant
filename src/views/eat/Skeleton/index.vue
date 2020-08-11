@@ -1,7 +1,7 @@
 <!--
  * @Description: 吃什么页面骨架屏
- * @FilePath: /ddBuy-dev/src/views/eat/Skeleton/index.vue
- * @Quote :https://danilowoz.com/create-content-loader/            
+ * @FilePath: /src/views/eat/Skeleton/index.vue
+ * @Quote :https://danilowoz.com/create-content-loader/
  -->
 
 <template>

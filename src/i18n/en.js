@@ -251,12 +251,10 @@ export default {
     phoneVerify: 'Account password login',
     smsMessage: 'SMS verification code login',
     switchLoginMsg: 'Account password login',
-    message:
-      'The verification code has been successfully obtained. Please enter it in the input box:',
+    message: 'The verification code has been successfully obtained. Please enter it in the input box:',
     pleaseInputCorrectPhoneNumber: 'Please enter the correct phone number',
     pleaseInputCorrectVerifyumber: 'Please enter the correct verification code',
     otherWechat: 'WeChat login - not complete yet',
     otherQQ: 'QQ login - not completed yet',
-    message: 'message:'
   }
 }

@@ -1,6 +1,6 @@
 <!--
  * @Description: 我的->个人资料
- * @FilePath: /ddBuy/src/views/mine/Children/UserCenter.vue
+ * @FilePath: /src/views/mine/Children/UserCenter.vue
  -->
 <template>
   <div id="userCenter">

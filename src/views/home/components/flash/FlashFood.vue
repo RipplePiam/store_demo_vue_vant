@@ -1,6 +1,6 @@
 <!--
- * @Description: 首页->限时抢购
- * @FilePath: /ddBuy/src/views/home/components/flash/FlashFood.vue
+ * @Description: 首页->限时抢购
+ * @FilePath: /src/views/home/components/flash/FlashFood.vue
  -->
 <template>
   <div id="flashFood">

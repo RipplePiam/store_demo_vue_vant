@@ -1,6 +1,6 @@
 <!--
  * @Description: 个人中心->语言切换
- * @FilePath: /ddBuy/src/views/mine/Children/SwitchLanguage.vue
+ * @FilePath: /src/views/mine/Children/SwitchLanguage.vue
  -->
 <template>
   <div id="switchLanguage">

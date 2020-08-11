@@ -1,6 +1,6 @@
 <!--
  * @Description: 购物车模块
- * @FilePath: /ddBuy/src/views/cart/Cart.vue
+ * @FilePath: /src/views/cart/Cart.vue
  -->
 <template>
   <div class="cart">
@@ -97,7 +97,7 @@ export default {
   mounted () {
     // 初始化数据
     this._initData();
-    console.log("🎉 遇到Bug别灰心,摸摸狗头就是干~ ✨✨");
+    console.log("🎉 欢迎使用~~ ✨✨");
   },
   data () {
     return {

@@ -1,3 +1,7 @@
+<!--
+ * @Description: HorizontalScroll 水平滑动组件
+ * @FilePath: /src/views/home/Home.vue
+ -->
 <template>
   <div id="horizontalScroll">
     <!-- 水平滑动 -->
@@ -102,7 +106,7 @@ export default {
       background-color: #ffffff;
       .menuIcon {
         width: 100%;
-        height: 2.8re;
+        height: 2.8rem;
       }
     }
   }

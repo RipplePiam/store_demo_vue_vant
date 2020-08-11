@@ -1,6 +1,6 @@
 <!--
  * @Description: 我的->个人资料->修改昵称
- * @FilePath: /ddBuy/src/views/mine/Children/ChangeNickName.vue
+ * @FilePath: /src/views/mine/Children/ChangeNickName.vue
  -->
 <template>
   <div id="changeNickName">

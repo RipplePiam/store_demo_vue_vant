@@ -1,6 +1,6 @@
 <!--
  * @Description: 吃什么->搜索栏
- * @FilePath: /ddBuy/src/views/eat/components/Search.vue
+ * @FilePath: /src/views/eat/components/Search.vue
  -->
 <template>
   <div id="search">
@@ -104,7 +104,7 @@ export default {
     height: 1.5rem;
     line-height: 1.5rem;
     border-left: 0.25rem solid #75a342;
-    font-size: 0.6728;
+    font-size: 0.6728rem;
     font-weight: 2000;
   }
 }

@@ -1,6 +1,6 @@
 <!--
  * @Description: 订单模块->添加地址
- * @FilePath: /ddBuy/src/views/order/children/children/AddAddress.vue
+ * @FilePath: /src/views/order/children/children/AddAddress.vue
  -->
 <template>
   <div id="addAddress">

@@ -1,6 +1,6 @@
 <!--
  * @Description: 分类模块->搜索框
- * @FilePath: /ddBuy/src/views/category/components/SearchHead.vue
+ * @FilePath: /src/views/category/components/SearchHead.vue
  -->
 <template>
   <div class="searchWrapper">

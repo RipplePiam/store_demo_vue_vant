@@ -1,6 +1,6 @@
 <!--
  * @Description: 我的->我的绿卡->水平滑动组件
- * @FilePath: /ddBuy/src/views/mine/Children/MyVipChildren/VipMenuTitleScroll.vue
+ * @FilePath: /src/views/mine/Children/MyVipChildren/VipMenuTitleScroll.vue
  -->
 <template>
   <div id="horizontalScroll">
@@ -109,7 +109,7 @@ export default {
       background-color: #ffffff;
       .menuIcon {
         width: 100%;
-        height: 2.8re;
+        height: 2.8rem;
       }
     }
   }

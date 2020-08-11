@@ -1,6 +1,6 @@
 <!--
  * @Description: 订单->订单商品详情
- * @FilePath: /ddBuy/src/views/order/children/OrderGoodsList.vue
+ * @FilePath: /src/views/order/children/OrderGoodsList.vue
  -->
  <template>
   <div id="orderGoodsList">

@@ -1,6 +1,6 @@
 <!--
  * @Description: 个人中心->我的订单->售后
- * @FilePath: /ddBuy/src/views/mine/Children/MyOrderChildren/AfterSale.vue
+ * @FilePath: /src/views/mine/Children/MyOrderChildren/AfterSale.vue
  -->
 <template>
   <div id="afterSale">

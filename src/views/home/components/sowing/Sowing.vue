@@ -1,6 +1,6 @@
 <!--
  * @Description: 首页->轮播组件
- * @FilePath: /ddBuy/src/views/home/components/sowing/Sowing.vue
+ * @FilePath: /src/views/home/components/sowing/Sowing.vue
  -->
 <template>
   <swiper id="swiper"

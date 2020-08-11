@@ -1,6 +1,6 @@
 <!--
  * @Description: 我的->我的绿卡
- * @FilePath: /ddBuy/src/views/mine/Children/MyVip.vue
+ * @FilePath: /src/views/mine/Children/MyVip.vue
  -->
 <template>
   <div id="myVip"

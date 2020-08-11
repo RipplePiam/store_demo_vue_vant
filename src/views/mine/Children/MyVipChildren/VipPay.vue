@@ -1,6 +1,6 @@
 <!--
  * @Description: 我的->我的绿卡->开通绿卡
- * @FilePath: /ddBuy/src/views/mine/Children/MyVipChildren/VipPay.vue
+ * @FilePath: /src/views/mine/Children/MyVipChildren/VipPay.vue
  -->
 <template>
   <div id="vipPay">

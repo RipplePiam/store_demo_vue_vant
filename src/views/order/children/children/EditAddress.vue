@@ -1,6 +1,6 @@
 <!--
  * @Description: 订单模块->编辑地址
- * @FilePath: /ddBuy/src/views/order/children/children/EditAddress.vue
+ * @FilePath: /src/views/order/children/children/EditAddress.vue
  -->
 <template>
   <div id="editAddress">

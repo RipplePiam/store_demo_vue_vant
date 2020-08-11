@@ -1,11 +1,6 @@
 /*
- * @Author: 极客James
- * @Motto: 求知若渴,虚心若愚
- * @Github: https://github.com/Geek-James/ddBuy
- * @掘金: https://juejin.im/user/5c4ebc72e51d4511dc7306ce
- * @LastEditTime : 2020-01-06 11:17:49
  * @Description: 项目主入口
- * @FilePath: /ddBuy/src/main.js
+ * @FilePath: /src/main.js
  */
 import Vue from 'vue'
 import App from './App.vue'

@@ -1,7 +1,7 @@
 <!--
  * @Description: 分类页面骨架屏
- * @FilePath: /ddBuy-dev/src/views/category/Skeleton/index.vue
- * @Quote :https://danilowoz.com/create-content-loader/            
+ * @FilePath: /src/views/category/Skeleton/index.vue
+ * @Quote :https://danilowoz.com/create-content-loader/
  -->
 <template>
   <div id="skeleton">

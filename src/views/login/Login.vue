@@ -1,6 +1,6 @@
 <!--
  * @Description: 登录模块
- * @FilePath: /ddBuy-dev/src/views/login/Login.vue
+ * @FilePath: /src/views/login/Login.vue
  -->
 <template>
   <div id="login">

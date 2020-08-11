@@ -1,6 +1,6 @@
 <!--
  * @Description: 吃什么->下拉菜单
- * @FilePath: /ddBuy/src/views/eat/components/MenuCategoryLists.vue
+ * @FilePath: /src/views/eat/components/MenuCategoryLists.vue
  -->
 <template>
   <div id="allMenuWrapper">
@@ -38,7 +38,7 @@ import Pubsub from 'pubsub-js'
 import { EAT_MENUTITLE_CLICK } from '../../../config/pubsub_type.js'
 
 // 导入本地存储
-import { setLocalStore, getLocalStore } from './../../../config/global.js'
+import { setLocalStore, getLocalStore } from '@/config/global'
 
 export default {
   props: {

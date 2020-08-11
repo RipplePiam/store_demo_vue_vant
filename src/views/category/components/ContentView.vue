@@ -1,6 +1,6 @@
 <!--
  * @Description: 分类模块->可滑动标题组件
- * @FilePath: /ddBuy-dev/src/views/category/components/ContentView.vue
+ * @FilePath: /src/views/category/components/ContentView.vue
  -->
 <template>
   <div class="wrapper">
@@ -113,7 +113,7 @@ export default {
       this._initProductScroll();
       this._isShowDropMenu();
     });
-    console.log("🎉https://github.com/Geek-James/ddBuy 点个Star就是对我最大的鼓励 ✨✨");
+    console.log("🎉 欢迎使用~~ ✨✨");
   },
   computed: {
     ...mapState(['userInfo'])

@@ -1,7 +1,8 @@
 <!--
  * @Description: Home 首页模块
- * @FilePath: /ddBuy-dev/src/views/home/Home.vue
+ * @FilePath: /src/views/home/Home.vue
  -->
+
 <template>
   <div id="home">
     <!-- 骨架屏幕  数据未加载时显示占位-->
@@ -25,8 +26,8 @@
       <!--<SpecialZone :specialZone="specialZone" />-->
 
       <!--TabbarItem 商品 -->
-      <TabbarGoodsItem :tabbar_all_product_list="tabbar_all_product_list"
-                       :flash_sale_product_list="flash_sale_product_list" />
+      <TabbarGoodsItem :tabbar_all_product_list="tabbar_all_product_list" />
+                       <!--:flash_sale_product_list="flash_sale_product_list" />-->
       <!-- 最底部 -->
       <van-divider>{{ $t('home.bottomTip') }}</van-divider>
     </div>
@@ -44,7 +45,7 @@ import { mapMutations, mapState } from 'vuex'
 import { ADD_TO_CART } from '@/config/pubsub_type'
 
 // 引入页面组件
-import Header from './components/header/Header'
+import Header from './components/header/Header' //顶部搜索栏
 import Sowing from './components/sowing/Sowing'
 import Tip from './components/tip/Tip'
 import Nav from './components/nav/Nav'
@@ -68,23 +69,23 @@ export default {
   },
   data () {
     return {
-      //sowing_list: [], // 首页轮播图数据
-      isShowLoading: true, // 是否加载动画
-      nav_list: [],
+      //sowing_list: [],             // 首页轮播图列表
+      isShowLoading: true,           // 是否加载动画
+      //nav_list: [],                // 轮播
       //flash_sale_product_list: [], // 限时抢购
-      tabbar_all_product_list: [],
-      //specialZone: {}, // 特色专区数据
-      //home_ad: '' // 首页广告
+      tabbar_all_product_list: [],   // 顶部标签栏列表
+      //specialZone: {},             // 特色专区数据
+      //home_ad: ''                  // 首页广告
     }
   },
   components: {
-    Header,
+    //Header,
     //Sowing,
-    Tip,
-    Nav,
+    //Tip,
+    //Nav,
     //VipTip,
     //FlashBuy,
-    SpecialZone,
+    //SpecialZone,
     TabbarGoodsItem,
     Loading,
     Skeleton
@@ -100,9 +101,9 @@ export default {
         // 给轮播组件 sowing_list赋值
         //this.sowing_list = data.list[0].icon_list
         // navList 赋值
-        this.nav_list = data.list[2].icon_list
+        //this.nav_list = data.list[2].icon_list
         // 给限时抢购赋值
-        this.flash_sale_product_list = data.list[3].product_list
+        //this.flash_sale_product_list = data.list[3].product_list
         // 给Tabbar 商品列表赋值
         this.tabbar_all_product_list = data.list[12].product_list
         this.isShowLoading = false
@@ -120,11 +121,13 @@ export default {
 #home {
   background-color: #f5f5f5;
   padding-bottom: 3rem;
+  /*
   .head {
     margin-top: -3rem;
     width: 100%;
     background-image: url("http://518taole.7-orange.cn/backImage.png");
   }
+  */
 }
 .van-divider {
   background-color: #f5f5f5;

@@ -1,6 +1,6 @@
 <!--
  * @Description: 订单模块->配送时间列表
- * @FilePath: /ddBuy/src/views/order/children/TimeIntervalList.vue
+ * @FilePath: /src/views/order/children/TimeIntervalList.vue
  -->
 <template>
   <div id="timeIntervalList">

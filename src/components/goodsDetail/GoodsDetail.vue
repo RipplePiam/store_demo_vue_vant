@@ -1,7 +1,7 @@
 <!--
- * @Description: 商品详情页 由于是Mock数据->通过上级页面通过路由的query传值 
+ * @Description: GoodsDetail 商品详情页组件 （由于是Mock数据->通过上级页面通过路由的query传值）
  * @supplement   企业开发,只需要拿到商品的id然后请求获取数据
- * @FilePath: /ddBuy-dev/src/components/goodsDetail/GoodsDetail.vue
+ * @FilePath: /src/components/goodsDetail/GoodsDetail.vue
  -->
 
 <template>
@@ -17,7 +17,9 @@
         <img :src="goodsInfo.small_image"
              alt="">
       </div>
+
       <!-- 限时抢购  -->
+      <!--
       <div class="flash"
            v-show="goodsInfo.isFlash">
         <div class="flashLeft">
@@ -26,7 +28,7 @@
         </div>
         <div class="flashRight">
           <span>{{$t('goodsDetail.end')}}</span>
-          <!-- 倒计时 -->
+          <!- - 倒计时 - ->
           <van-count-down :time="time"
                           class="countStyle"
                           format="HH mm ss">
@@ -40,28 +42,35 @@
           </van-count-down>
         </div>
       </div>
-      <!-- 商品名称 -->
+      -->
+
+      <!-- 商品信息 -->
       <div class="productInfo">
-        <div class="title">{{goodsInfo.name}}</div>
-        <div class="subTitle">{{goodsInfo.spec}}</div>
-        <span class="originPrice">{{goodsInfo.origin_price | moneyFormat}}</span>
-        <span class="price">{{goodsInfo.price}}</span>
-        <span class="totalSales">{{$t('goodsDetail.sold')}}:{{goodsInfo.total_sales}}</span>
+        <div class="title">{{goodsInfo.name}}</div><!-- 标题 -->
+        <div class="subTitle">{{goodsInfo.spec}}</div><!-- 子标题 -->
+        <span class="originPrice">{{goodsInfo.origin_price | moneyFormat}}</span><!-- 原价 -->
+        <span class="price">{{goodsInfo.price}}</span><!-- 现价 -->
+        <span class="totalSales">{{$t('goodsDetail.sold')}}:{{goodsInfo.total_sales}}</span><!-- 已售数量 -->
+        <!-- 商品提示 -->
         <van-divider />
         <div class="shippingInfo">
           <van-icon name="cluster-o" />{{$t('goodsDetail.goodsTips')}}</div>
+        <!-- 最快送达时间 -->
         <van-divider />
         <div class="shippingInfo">
           <van-icon name="clock-o" />{{$t('goodsDetail.quickTime')}}</div>
       </div>
-      <!-- 规格 -->
+
+      <!-- 规格说明 -->
       <div class="specifications">
         <div class="specificationsTitle">{{$t('goodsDetail.specifications')}} </div>
+        <!-- 保存条件 -->
         <van-divider dashed />
         <div class="conditions">
           <span>{{$t('goodsDetail.preservationConditions')}}</span>
           <span class="conditionsOne">{{$t('goodsDetail.coldStorage')}}</span>
         </div>
+        <!-- 保质期 -->
         <van-divider dashed />
         <div class="conditions">
           <span>{{$t('goodsDetail.shelfLife')}}</span>
@@ -69,9 +78,13 @@
         </div>
         <van-divider dashed />
       </div>
+
+      <!-- 商品详情图 -->
       <div class="showGoods">
+        <!-- 选中商品图 -->
         <img :src="goodsInfo.small_image"
              alt="">
+        <!-- 统一说明图 -->
         <img :src="goodsImage"
              alt="">
       </div>
@@ -103,16 +116,12 @@ export default {
     console.log();
 
   },
-  computed: {
-  },
   data () {
     return {
-      // 倒计时时间设置
-      time: 30 * 60 * 1000 * 100,
-      // 是否是限时抢购
-      isFlash: false,
-      goodsInfo: this.$route.query,
-      goodsImage: 'https:\/\/img.ddimg.mobi\/3f280ff77ab3d1571213379189.jpg?width=750&height=1869'
+      //time: 30 * 60 * 1000 * 100,       // 倒计时时间设置
+      //isFlash: false,                   // 是否是限时抢购
+      //goodsInfo: this.$route.query,
+      //goodsImage: 'https:\/\/img.ddimg.mobi\/3f280ff77ab3d1571213379189.jpg?width=750&height=1869'
     }
   },
   computed: {
@@ -162,6 +171,7 @@ export default {
         height: 80%;
       }
     }
+    /*
     .flash {
       display: flex;
       flex: 1;
@@ -209,6 +219,7 @@ export default {
         }
       }
     }
+    */
     .productInfo {
       background-color: white;
       padding: 0.5rem;

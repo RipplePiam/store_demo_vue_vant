@@ -1,6 +1,6 @@
 <!--
  * @Description: 首页->加入会员Tip
- * @FilePath: /ddBuy/src/views/home/components/myVip/VipTip.vue
+ * @FilePath: /src/views/home/components/myVip/VipTip.vue
  -->
 <template>
   <div id="vipPage"
