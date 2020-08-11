@@ -109,7 +109,7 @@
         </van-tabs>
 
         <!-- 第三方登录 -->
-        <van-divider :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 5px' }">
+        <!--<van-divider :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 5px' }">
           {{$t('login.otherMethods')}}
         </van-divider>
         <van-grid :column-num="2"
@@ -122,7 +122,7 @@
             <svg-icon iconClass="QQ" />
             <div class="title">{{$t('login.qqchant')}}</div>
           </van-grid-item>
-        </van-grid>
+        </van-grid>-->
         <!-- 底部声明 -->
         <p class="agreement"> {{$t('login.tipTile')}}<br>{{$t('login.tipContent')}}<a @click.stop="agreement(0)"
              class="agreement-box">{{$t('login.tip')}}</a>、<a @click.stop=agreement(1)
@@ -334,7 +334,7 @@ export default {
       this.$router.back();
     },
     // 9.第三方登录
-    thirdLogin (value) {
+    /*thirdLogin (value) {
 
       if (value == 0) {
         Toast({
@@ -347,7 +347,7 @@ export default {
           duration: 800
         });
       }
-    },
+    },*/
     // 正则验证
     phoneRegex (number) {
       return (/[1][3,4,5,6,7,8][0-9]{9}$/.test(number));
@@ -363,7 +363,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("../../images/login/back2.jpg");
+  background: url("../../images/login/back3.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -415,7 +415,9 @@ export default {
     }
     .switchLogin {
       margin-top: 1rem;
-      font-size: 0.78rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: blue;
     }
   }
 }

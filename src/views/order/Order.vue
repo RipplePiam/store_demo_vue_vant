@@ -4,10 +4,12 @@
  -->
 <template>
   <div id="order">
+    <!-- 顶部返回栏 -->
     <van-nav-bar :title="$t('order.inputForm')"
                  left-arrow
                  :fixed=true
                  @click-left="onClickLeft" />
+
     <!-- 选择收货地址 -->
     <van-contact-card :type="address_type"
                       :add-text="$t('order.location')"
@@ -15,20 +17,9 @@
                       :tel="address_phone"
                       @click="chooseAddress"
                       style="margin-top:3rem" />
+
+    <!-- 选择送达时间 -->
     <van-cell-group>
-      <van-cell :title="$t('order.arrivalTime')"
-                :value="deliveryTime"
-                is-link
-                @click="showTimePickView">
-        <template slot="label">
-          <span class="custom-title">{{$t('order.outTimeGetMoney')}}</span>
-          <van-icon name="question-o" />
-        </template>
-      </van-cell>
-      <!-- 送货时间区间选择器 -->
-      <TimeIntervalList ref="timeInterval"
-                        :showDateTimePopView="showDateTimePopView"
-                        @changeData="changeData(arguments)"></TimeIntervalList>
       <!-- 商品缩略图 -->
       <div class="wrapper"
            @click="goToGoodsList">
@@ -51,7 +42,25 @@
           <van-icon name="arrow" />
         </ul>
       </div>
+
+      <!-- 送达时间 -->
+      <!--
+      <van-cell :title="$t('order.arrivalTime')"
+                :value="deliveryTime"
+                is-link
+                @click="showTimePickView">
+        <template slot="label">
+          <span class="custom-title">{{$t('order.outTimeGetMoney')}}</span>
+          <van-icon name="question-o" />
+        </template>
+      </van-cell>
+      <!- - 送货时间区间选择器 - ->
+      <TimeIntervalList ref="timeInterval"
+                        :showDateTimePopView="showDateTimePopView"
+                        @changeData="changeData(arguments)"></TimeIntervalList>
+      -->
     </van-cell-group>
+
     <!-- 支付方式选择 -->
     <van-radio-group v-model="radio">
       <van-cell-group :title="$t('mine.payMethod')">
@@ -101,13 +110,13 @@
     </van-radio-group>
 
     <!-- 优惠券及积分满减 -->
-    <van-cell-group style="margin-top: 0.6rem">
+    <!--<van-cell-group style="margin-top: 0.6rem">
       <van-coupon-cell :coupons="coupons"
                        :chosen-coupon="chosenCoupon"
                        @click="showList = true" />
 
       <van-cell>
-        <!-- 优惠券列表 -->
+        <!- - 优惠券列表 - ->
         <van-popup v-model="showList"
                    position="bottom">
           <van-coupon-list :coupons="coupons"
@@ -115,13 +124,14 @@
                            @change="onChange"
                            @exchange="onExchange" />
         </van-popup>
-        <span slot="title">{{$t('order.use')}}{{integral}}{{$t('order.aliPay')}}<b>{{integralToprice | moneyFormat}}</b></span>
+        <span slot="title">{{$t('order.use')}}{{integral}}{{$t('order.order12')}}<b>{{integralToprice | moneyFormat}}</b></span>
         <van-switch v-model="checked"
                     slot="right-icon"
                     @input="onInput"
                     active-color="#07c160" />
       </van-cell>
-    </van-cell-group>
+    </van-cell-group>-->
+
     <!-- 备注 -->
     <van-cell-group style="margin-top: 0.6rem">
       <van-field :label="$t('order.mark')"
@@ -134,16 +144,19 @@
 
     <!-- 商品金额 -->
     <van-cell-group style="margin-top: 0.6rem">
+      <!--商品金额-->
       <van-cell :title="$t('order.totalMoney')">
         <div class="money">{{(selectedTotalPrice/100) |moneyFormat }}</div>
       </van-cell>
+      <!--配送费-->
       <van-cell :title="$t('order.sendMoney')">
         <div class="money">0.00</div>
       </van-cell>
-      <van-cell :title="$t('order.point')"
+      <!--积分-->
+      <!--<van-cell :title="$t('order.point')"
                 v-show="isShowPreferential">
         <div class="integralToMoney">-{{integralToprice | moneyFormat}}</div>
-      </van-cell>
+      </van-cell>-->
     </van-cell-group>
 
     <!-- 提交订单 -->
@@ -151,11 +164,13 @@
                     :label="$t('order.pay')"
                     :button-text="$t('order.sendForm')"
                     @submit="onSubmit" />
+
     <!-- 路由出口 -->
     <transition name="router-slider"
                 mode="out-in">
       <router-view></router-view>
     </transition>
+
   </div>
 </template>
 
@@ -163,15 +178,15 @@
 import BScroll from 'better-scroll'
 import { mapState, mapGetters, mapMutations } from 'vuex'
 import { Toast, Dialog } from 'vant';
-import { getLocalStore } from './../../config/global.js'
-// 引入发布订阅
-import { CHOOSE_USER_ADDRESS } from '../../config/pubsub_type.js'
+import { getLocalStore } from '@/config/global'
+// 引入地址订阅
+import { CHOOSE_USER_ADDRESS } from '@/config/pubsub_type'
 import PubSub from 'pubsub-js'
-
 // 送货时间区间组件
 import TimeIntervalList from './children/TimeIntervalList'
 
 export default {
+  // 数据
   data () {
     return {
       address_type: 'add',           //地址卡片类型
@@ -180,14 +195,15 @@ export default {
       address_id: null,              // 收货人地址ID
 
       radio: '1',                    // 支付方式  
-      checked: false,                // 积分兑换开关
-      isShowPreferential: false,     // 展示积分兑换
-      integral: 800,                // 积分,
-      showList: false,              // 展示优惠列表
 
-      deliveryTime: this.$t('order.deliveryTime'),
-      showDateTimePopView: false,
-      coupons: [{                  // 优惠券信息  
+      //checked: false,                // 积分兑换开关 //d
+      //isShowPreferential: false,     // 展示积分兑换 //d
+      //integral: 800,                // 积分         //d
+      //showList: false,              // 展示优惠列表  //d
+      /*
+      deliveryTime: this.$t('order.deliveryTime'), //送达时间
+      showDateTimePopView: false,     // 时间选择器
+      coupons: [{
         available: 1,
         condition: this.$t('mine.condition'),
         reason: '',
@@ -197,7 +213,7 @@ export default {
         endAt: 1614592000,
         valueDesc: '1.5',
         unitDesc: '元'
-      }, {                  // 优惠券信息     
+      }, {
         available: 1,
         condition: this.$t('mine.condition'),
         reason: '',
@@ -207,10 +223,13 @@ export default {
         endAt: 1614592000,
         valueDesc: '2',
         unitDesc: '元'
-      }],
-      chosenCoupon: -1,
+      }],                           // 优惠券信息
+      chosenCoupon: -1,               // 选中优惠券
+      */
     };
   },
+
+  // 计算
   computed: {
     // 数量
     ...mapGetters({
@@ -222,6 +241,8 @@ export default {
     actualPrice () {
       // 如果用户使用积分兑换或使用优惠券
       let finalPrice;
+      return finalPrice;//add
+      /*
       if (this.checked) {
         let discountsPrice = this.integralToprice.toFixed(2).toString().replace('.', '');
         finalPrice = this.selectedTotalPrice - discountsPrice;
@@ -234,14 +255,20 @@ export default {
       } else {
         return finalPrice;
       }
+      */
     },
+
     // 计算积分兑换人民币
+    /*
     integralToprice () {
       if (this.integral > 0) {
         return (this.integral / 100);
       }
     },
+    */
   },
+
+  // 挂载请求
   mounted () {
     // 初始化本地购物车数据
     this.INIT_SHOP_CART();
@@ -262,12 +289,17 @@ export default {
       }
     });
   },
+
+  // 组件
   components: {
-    TimeIntervalList
+    //TimeIntervalList //d
   },
+
+  // 方法
   methods: {
     // 初始化本地购物车数据
     ...mapMutations(['INIT_SHOP_CART']),
+
     // 1.初始化滚动视图
     _initScroll () {
       if (!this.productImageScroll) {
@@ -282,10 +314,12 @@ export default {
         this.productImageScroll.refresh();
       }
     },
+
     // 2.返回到上个界面
     onClickLeft () {
       this.$router.back();
     },
+
     // 3.提交订单
     onSubmit () {
       if (!this.address_name) {
@@ -293,20 +327,23 @@ export default {
           message: '请选择收货地址',
           duration: 800
         });
-      } else if (this.$t('deliveryTime') == this.$t('deliveryTime')) {
+      }
+      /*else if (this.$t('deliveryTime') == this.$t('deliveryTime')) {
         Toast({
           message: this.deliveryTime,
           duration: 800
         });
-      } else {
+      }*/
+      else {
         Toast({
-          message: this.$t('order.sendForm'),
+          message: this.$t('order.sendForm'),// msg:提交订单
           duration: 800
         });
       }
     },
+
     // 4.switch开关
-    onInput (checked) {
+    /*onInput (checked) {
       let discountsPrice = this.integralToprice * 100;
       // 4.1 判断积分使用条件是否满足
       if (discountsPrice > this.selectedTotalPrice) {
@@ -319,16 +356,20 @@ export default {
       } else {
         this.isShowPreferential = !this.isShowPreferential;
       }
-    },
+    },*/
+
+    // 商品清单
     goToGoodsList () {
       this.$router.push({ name: 'orderGoodsList' })
     },
+
     // 选择地址
     chooseAddress () {
       this.$router.push('/order/myAddress');
-    },
+    }//,
+
     // 选择优惠券
-    onChange (index) {
+    /*onChange (index) {
       this.showList = false;
       this.chosenCoupon = index;
     },
@@ -343,13 +384,15 @@ export default {
     changeData () {
       this.showDateTimePopView = arguments[0][0];
       this.deliveryTime = arguments[0][1];
-    }
+    }*/
   },
+
+  // 销毁订阅地址
   beforeDestroy () {
-    // 销毁订阅
     PubSub.unsubscribe(CHOOSE_USER_ADDRESS);
   }
 }
+
 </script>
 <style lang="less" scoped>
 #order {

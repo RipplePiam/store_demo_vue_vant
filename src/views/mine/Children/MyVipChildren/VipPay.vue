@@ -125,7 +125,7 @@ export default {
     return {
       // 头像
       user_image: {
-        login_icon: require('./../../../../images/mine/defaultImg.jpeg'),
+        login_icon: require('./../../../../images/mine/defaultImg.jpg'),
       },
       vipTipMsg: this.$t('mine.cardUeless'),
       checked: true,

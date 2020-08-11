@@ -8,21 +8,22 @@
     <Skeleton v-show="isShowLoading" />
     <div v-if="!isShowLoading">
       <!-- 头部地理位置和搜索框 -->
-      <div class="head">
-        <Header></Header>
-        <!-- 轮播图 -->
-        <Sowing :sowing_list="sowing_list" />
-        <!-- tip -->
-        <Tip :home_ad="home_ad" />
-      </div>
+      <!--<div class="head">
+      <Header></Header>-->
+      <!-- 轮播图 -->
+      <!--<Sowing :sowing_list="sowing_list" />-->
+      <!-- tip -->
+      <!--<Tip :home_ad="home_ad" />
+      </div>-->
       <!-- Nav -->
-      <Nav :nav_list="nav_list" />
+      <!--<Nav :nav_list="nav_list" />-->
       <!-- 跳转到会员界面 -->
-      <VipTip></VipTip>
+      <!--<VipTip></VipTip>-->
       <!-- 限时抢购 -->
-      <FlashBuy :flash_sale_product_list="flash_sale_product_list" />
+      <!--<FlashBuy :flash_sale_product_list="flash_sale_product_list" />-->
       <!-- 特色专区 -->
-      <SpecialZone :specialZone="specialZone" />
+      <!--<SpecialZone :specialZone="specialZone" />-->
+
       <!--TabbarItem 商品 -->
       <TabbarGoodsItem :tabbar_all_product_list="tabbar_all_product_list"
                        :flash_sale_product_list="flash_sale_product_list" />
@@ -35,12 +36,12 @@
 </template>
 
 <script type="text/javascript">
-import { getHomeData } from './../../serve/api/index.js'
+import { getHomeData } from '@/serve/api'
 
 // 引入Vuex
 import { mapMutations, mapState } from 'vuex'
 
-import { ADD_TO_CART } from './../../config/pubsub_type.js'
+import { ADD_TO_CART } from '@/config/pubsub_type'
 
 // 引入页面组件
 import Header from './components/header/Header'
@@ -67,22 +68,22 @@ export default {
   },
   data () {
     return {
-      sowing_list: [], // 首页轮播图数据
+      //sowing_list: [], // 首页轮播图数据
       isShowLoading: true, // 是否加载动画
       nav_list: [],
-      flash_sale_product_list: [], // 限时抢购
+      //flash_sale_product_list: [], // 限时抢购
       tabbar_all_product_list: [],
-      specialZone: {}, // 特色专区数据
-      home_ad: '' // 首页广告
+      //specialZone: {}, // 特色专区数据
+      //home_ad: '' // 首页广告
     }
   },
   components: {
     Header,
-    Sowing,
+    //Sowing,
     Tip,
     Nav,
-    VipTip,
-    FlashBuy,
+    //VipTip,
+    //FlashBuy,
     SpecialZone,
     TabbarGoodsItem,
     Loading,
@@ -97,7 +98,7 @@ export default {
       if (response.success) {
         const data = response.data
         // 给轮播组件 sowing_list赋值
-        this.sowing_list = data.list[0].icon_list
+        //this.sowing_list = data.list[0].icon_list
         // navList 赋值
         this.nav_list = data.list[2].icon_list
         // 给限时抢购赋值
@@ -106,9 +107,9 @@ export default {
         this.tabbar_all_product_list = data.list[12].product_list
         this.isShowLoading = false
         // 给特色专区赋值
-        this.specialZone = data.special_zone
+        //this.specialZone = data.special_zone
         // 获取首页广告图
-        this.home_ad = data.home_ad.image_url
+        //this.home_ad = data.home_ad.image_url
       }
     }
   }
@@ -117,7 +118,7 @@ export default {
 
 <style lang="less" scoped>
 #home {
-  background-color: "#f5f5f5";
+  background-color: #f5f5f5;
   padding-bottom: 3rem;
   .head {
     margin-top: -3rem;

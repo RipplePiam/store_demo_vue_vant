@@ -9,7 +9,7 @@
               swipeable
               sticky
               :border="false"
-              :offset-top="47"
+              :offset-top="0"
               ref="tabs"
               type="line"
               color="#28BE57"

@@ -97,7 +97,7 @@ export default {
   mounted () {
     // 初始化数据
     this._initData();
-    console.log("🎉 https://github.com/Geek-James/ddBuy 遇到Bug别灰心,摸摸狗头就是干~ ✨✨");
+    console.log("🎉 遇到Bug别灰心,摸摸狗头就是干~ ✨✨");
   },
   data () {
     return {

@@ -7,13 +7,13 @@ import state from '../store/state';
 
 // 懒加载二级组件 Tarbar
 const Home = () => import('../views/home/Home.vue');
-const Category = () => import('../views/category/Category.vue');
-const Eat = () => import('../views/eat/Eat.vue');
+const Category = () => import('../views/category/Category.vue');//d
+const Eat = () => import('../views/eat/Eat.vue');//d
 const Cart = () => import('../views/cart/Cart.vue');
 const Mine = () => import('../views/mine/Mine.vue');
 
 // 地图
-const Map = () => import('../views/home/components/map/Map.vue');
+const Map = () => import('../views/home/components/map/Map.vue');//d
 
 // 解决多次点击重复路由报错
 const originalPush = Router.prototype.push
@@ -26,11 +26,11 @@ const UserCenter = () => import('../views/mine/Children/UserCenter.vue');
 // 修改用户昵称
 const ChangeNickName = () => import('../views/mine/Children/ChangeNickName.vue');
 // 优惠券
-const CouponList = () => import('../views/mine/Children/CouponList.vue')
+const CouponList = () => import('../views/mine/Children/CouponList.vue')//d
 // 绿卡会员
-const MyVip = () => import('../views/mine/Children/MyVip.vue')
+const MyVip = () => import('../views/mine/Children/MyVip.vue')//d
 // 会员支付
-const VipPay = () => import('../views/mine/Children/MyVipChildren/VipPay.vue')
+const VipPay = () => import('../views/mine/Children/MyVipChildren/VipPay.vue')//d
 // 我的订单
 const MyOrder = () => import('../views/mine/Children/MyOrder');
 // 订单商品详情页
@@ -38,7 +38,7 @@ const OrderGoodsList = () => import('../views/order/children/OrderGoodsList')
 // 商品详情页
 const GoodsDetail = () => import('../components/goodsDetail/GoodsDetail.vue');
 // 语言切换
-const SwitchLanguage = () => import('../views/mine/Children/SwitchLanguage.vue');
+const SwitchLanguage = () => import('../views/mine/Children/SwitchLanguage.vue');//d
 
 // 加载订单相关的组件
 const Order = () => import('../views/order/Order.vue');
@@ -91,7 +91,7 @@ const router = new Router({
                 meta: {
                     keepAlive: true
                 }
-            }, {
+            }, {//d
                 // 分类
                 path: 'category',
                 name: 'category',
@@ -100,7 +100,7 @@ const router = new Router({
                 meta: {
                     keepAlive: true
                 },
-            }, {
+            }, {//d
                 // 吃什么
                 path: 'eat',
                 name: 'eat',
@@ -133,7 +133,7 @@ const router = new Router({
                         name: 'ChangeNickName',
                         component: ChangeNickName
                     }]
-                }, {
+                }, {//d
                     // 优惠券
                     path: 'couponList',
                     name: 'couponList',
@@ -149,7 +149,7 @@ const router = new Router({
                     meta: {
                         requireAuth: true
                     }
-                }, {
+                }, {//d
                     // 绿卡会员
                     path: 'myVip',
                     name: 'myVip',
@@ -159,11 +159,11 @@ const router = new Router({
                         keepAlive: true,
                         requireAuth: true,
                     }
-                }, {
+                }, {//d
                     path: '/vipPay',
                     name: 'vipPay',
                     component: VipPay
-                }, {
+                }, {//d
                     path: 'switchLanguage',
                     name: 'switchLanguage',
                     component: SwitchLanguage
@@ -173,7 +173,7 @@ const router = new Router({
                 path: '/goodsDetail',
                 name: 'goodsDetail',
                 component: GoodsDetail
-            }, {
+            }, {//d
                 path: 'map',
                 name: 'map',
                 component: Map,

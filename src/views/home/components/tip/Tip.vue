@@ -20,10 +20,10 @@
            alt="">
       <span class="tipText">{{$t('common.easeBack')}}</span>
     </div>
-    <div @click="goToVip">
+    <!--<div @click="goToVip">
       <img class="adImg"
            :src="home_ad">
-    </div>
+    </div>-->
   </div>
 </template>
 

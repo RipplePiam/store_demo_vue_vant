@@ -48,12 +48,14 @@
     </van-cell-group>
     <!-- 订单相关-->
     <van-cell-group>
+      <!--我的订单-->
       <van-cell :title="$t('mine.myOrder')"
                 icon="label"
                 :value="$t('mine.allOrder')"
                 is-link
                 @click="goTomyOrder(-1)">
       </van-cell>
+      <!--4个icon订单状态-->
       <van-grid :border=false>
         <van-grid-item v-for="(order,index) in orderData"
                        :key="index"
@@ -62,19 +64,22 @@
                        @click="goTomyOrder(index)" />
       </van-grid>
     </van-cell-group>
+
     <van-cell-group style="margin-top:0.4rem">
-      <van-cell :title="$t('mine.myBill')"
+      <!--我的优惠券-->
+      <!--<van-cell :title="$t('mine.myBill')"
                 icon="gold-coin"
                 :value="userInfo.token?'2':''"
                 @click="goToPage('couponList')"
-                is-link />
+                is-link />-->
+      <!--我的收货地址-->
       <van-cell :title="$t('mine.myLocation')"
                 icon="todo-list"
                 is-link
                 @click="goToPage('myAddress')" />
     </van-cell-group>
-
-    <van-cell-group style="margin-top:0.4rem">
+      <!--我的绿卡-->
+    <!--<van-cell-group style="margin-top:0.4rem">
       <van-cell is-link
                 icon="vip-card"
                 @click="goToPage('myVip')">
@@ -84,23 +89,24 @@
                    :round=true>NEW</van-tag>
         </template>
       </van-cell>
-    </van-cell-group>
+    </van-cell-group>-->
+
     <van-cell-group style="margin-top:0.4rem">
       <!-- 联系客服 -->
-      <van-cell :title="$t('mine.servier')"
+      <!--<van-cell :title="$t('mine.servier')"
                 icon="phone"
                 :value="$t('mine.servierTime')"
-                is-link />
+                is-link />-->
       <!-- 意见反馈 -->
       <van-cell :title="$t('mine.feedback')"
                 icon="comment-circle"
                 is-link
                 @click="onFeedBack" />
       <!-- 语言切换 -->
-      <van-cell :title="$t('mine.switchLanguage')"
+      <!--<van-cell :title="$t('mine.switchLanguage')"
                 icon="clock"
                 @click="onSwitchLanguage"
-                is-link />
+                is-link />-->
     </van-cell-group>
 
     <div class="version">{{$t('mine.version')}}{{version}}</div>
@@ -123,8 +129,8 @@ export default {
     return {
       // 头像
       user_image: {
-        login_icon: require('./../../images/mine/defaultImg.jpeg'),
-        noLogin_icon: require('./../../images/login/grey.jpg'),
+        login_icon: require('./../../images/mine/defaultImg.jpg'),
+        noLogin_icon: require('./../../images/login/user.png'),
         female: require('./../../images/mine/female.png'),
         male: require('./../../images/mine/male.png')
       },
@@ -132,15 +138,15 @@ export default {
       orderData: [
         { icon: 'cart-circle-o', title: 'mine.itemsTitle[1]' },
         { icon: 'gift-o', title: 'mine.itemsTitle[2]' },
-        { icon: 'smile-comment-o', title: 'mine.itemsTitle[3]' },
-        { icon: 'cash-back-record', title: 'mine.waitingFeedback' }
+        { icon: 'smile-comment-o', title: 'mine.itemsTitle[3]' }//,
+        //{ icon: 'cash-back-record', title: 'mine.waitingFeedback' }//d
       ],
       // 版本信息
       version: _VERSION_,
     }
   },
   mounted () {
-    console.log("🎉 https://github.com/Geek-James/ddBuy 努力遇到最好的自己 ✨✨");
+    console.log("🎉 努力遇到最好的自己 ✨✨");
   },
   computed: {
     ...mapState(['userInfo']),
@@ -154,14 +160,15 @@ export default {
   methods: {
     // 跳转到我的订单
     goTomyOrder (index) {
-      if (index !== 3) {
+      return this.$router.push({ name: "myOrder", params: { active: index + 1 } });//add
+      /*if (index !== 3) {
         return this.$router.push({ name: "myOrder", params: { active: index + 1 } });
       }
       // 跳转到售后退款界面
       Toast({
         message: this.$t('mine.unrealized'),
-        duration: 1500
-      })
+        duration: 1500 //持续时间
+      })*/ //d
     },
     goToPage (name) {
       this.$router.push({ name });
@@ -169,17 +176,17 @@ export default {
     // 意见反馈
     onFeedBack () {
       Dialog.alert({
-        confirmButtonText: this.$t('mine.tip2'),
         title: this.$t('mine.tip3'),
-        message: this.$t('mine.tip4')
+        message: this.$t('mine.tip4'),
+        confirmButtonText: this.$t('mine.tip2')
       }).then(() => {
         // on close
       });
-    },
+    }//,
     // 切换语言
-    onSwitchLanguage () {
+    /*onSwitchLanguage () {
       this.$router.push({ name: 'switchLanguage' });
-    }
+    }*///d
   }
 }
 </script>
@@ -189,6 +196,7 @@ export default {
   width: 100%;
   background-color: #f5f5f5;
   margin-bottom: 3rem;
+  /*版本信息*/
   .version {
     margin: 0 auto;
     text-align: center;
@@ -198,13 +206,15 @@ export default {
     color: grey;
     line-height: 2rem;
   }
+  /*顶部信息栏*/
   .van-nav-bar {
-    background-color: #3bba63;
+    background-color: white;//#3bba63
     font-size: 0.6rem;
   }
   .van-nav-bar__title {
     color: white;
   }
+  /*个人信息栏*/
   .personMsg {
     display: flex;
     align-items: center;
@@ -224,14 +234,13 @@ export default {
       height: 4rem;
       border-radius: 50%;
     }
-
     .personInfo {
       display: flex;
       flex-direction: column;
       margin-left: 0.8rem;
     }
   }
-
+  /*界面左侧图标*/
   .van-cell__left-icon {
     color: #45c763;
     font-size: 1.2rem;

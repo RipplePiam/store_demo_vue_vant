@@ -1,5 +1,5 @@
 <!--
- * @Description: 我的->个人资料
+ * @Description: 我的->个人资料
  * @FilePath: /ddBuy/src/views/mine/Children/UserCenter.vue
  -->
 <template>
@@ -12,7 +12,7 @@
                  style="height:2.5rem" />
     <div class="icon">
       <span class="title">{{$t('mine.head')}}</span>
-      <img src="./../../../images/mine/defaultImg.jpeg"
+      <img src="./../../../images/mine/defaultImg.jpg"
            alt="">
     </div>
     <van-cell-group>
@@ -95,7 +95,7 @@ export default {
       currentDate: new Date('1989/01/01'),
       // 最小时间
       minDate: new Date('1949/01/01'),
-      maxDate: new Date('2019/12/31'),
+      maxDate: new Date('2020/01/01'),
     }
   },
   computed: {

@@ -1,5 +1,5 @@
 <!--
- * @Description: 分类
+ * @Description: 分类模块
  * @FilePath: /ddBuy-dev/src/views/category/Category.vue
  -->
 <template>
