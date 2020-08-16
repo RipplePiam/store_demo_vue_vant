@@ -10,7 +10,7 @@
        titleWrapper">
       <h4><strong>{{$t('car.title')}}</strong></h4>
       <div class="clearCart"
-           :style="selectedGoodsCount==0?'color:grey':'color:#45c763'"
+           :style="selectedGoodsCount===0?'color:grey':'color:#45c763'"
            @click="clearCart"
            v-show="isShowEmptyCart">{{$t('car.delete')}}</div>
     </header>
@@ -34,13 +34,13 @@
           <section>
             <div class="shopCartListCon">
               <div class="left">
-                <a href="javaScript:;"
+                <a href="javaScript:"
                    class="cartCheckBox"
                    :checked="goods.checked"
                    @click.stop="single(goods.id)"></a>
               </div>
               <div class="center">
-                <img :src="goods.smallImage">
+                <img :src="goods.smallImage" alt="">
               </div>
               <div class="right">
                 <a>{{goods.name}}</a>
@@ -86,11 +86,11 @@
 <script type="text/javascript">
 // 引入组件
 import ProduceItem from './../home/components/tabbar/ProduceItem'
-import { getGuessYouLike } from './../../serve/api/index.js'
+import { getGuessYouLike } from '@/serve/api'
 import Loading from '../../components/loading/LoadingGif'
 // 引入Vuex
 import { mapMutations, mapState, mapGetters } from 'vuex'
-import { getLocalStore } from '../../config/global';
+import { getLocalStore } from '@/config/global';
 // 引入提示框
 import { Dialog, Toast } from 'vant';
 export default {
@@ -301,7 +301,6 @@ export default {
         padding: 0.5rem;
       }
       .goHome {
-        margin-top: 2rem;
         color: white;
         background-color: #45c763;
         text-align: center;

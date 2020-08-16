@@ -5,7 +5,7 @@ import Router from 'vue-router'
 import Dashboard from '../views/dashboard/Dashboard.vue'
 import state from '../store/state';
 
-// 懒加载二级组件 Tarbar
+// 懒加载二级组件 Tabbar
 const Home = () => import('../views/home/Home.vue');
 const Category = () => import('../views/category/Category.vue');//d
 const Eat = () => import('../views/eat/Eat.vue');//d
@@ -33,7 +33,7 @@ const MyVip = () => import('../views/mine/Children/MyVip.vue')//d
 const VipPay = () => import('../views/mine/Children/MyVipChildren/VipPay.vue')//d
 // 我的订单
 const MyOrder = () => import('../views/mine/Children/MyOrder');
-// 订单商品详情页
+// 订单商品页
 const OrderGoodsList = () => import('../views/order/children/OrderGoodsList')
 // 商品详情页
 const GoodsDetail = () => import('../components/goodsDetail/GoodsDetail.vue');
@@ -45,6 +45,10 @@ const Order = () => import('../views/order/Order.vue');
 const MyAddress = () => import('../views/order/children/MyAddress.vue');
 const AddAddress = () => import('../views/order/children/children/AddAddress.vue');
 const EditAddress = () => import('../views/order/children/children/EditAddress.vue');
+
+// 支付相关
+// 支付成功页
+const Success = () => import('../views/payment/Payment')
 
 // 注册登录
 const Login = () => import('../views/login/Login.vue');
@@ -63,151 +67,184 @@ const router = new Router({
         }
     },
     // !!注意: 二级路由不需要加 '/'
-    routes: [{
+    routes: [
+        {
             path: '/',
             redirect: '/dashboard',
             // 是否数据缓存
             meta: {
                 keepAlive: true
             },
-        }, {
+        },
+        {
             // 根页面 
             path: '/dashboard',
             name: 'dashboard',
             component: Dashboard,
-            children: [{
-                path: '/dashboard',
-                redirect: '/dashboard/home',
-                // 是否数据缓存
-                meta: {
-                    keepAlive: true
-                },
-            }, {
-                // 主页
-                path: 'home',
-                name: 'home',
-                component: Home,
-                // 是否数据缓存
-                meta: {
-                    keepAlive: true
-                }
-            }, {//d
-                // 分类
-                path: 'category',
-                name: 'category',
-                component: Category,
-                // 是否数据缓存
-                meta: {
-                    keepAlive: true
-                },
-            }, {//d
-                // 吃什么
-                path: 'eat',
-                name: 'eat',
-                component: Eat,
-                // 是否数据缓存
-                meta: {
-                    keepAlive: true
-                }
-            }, {
-                // 购物车
-                path: 'cart',
-                name: 'cart',
-                component: Cart,
-                meta: {
-                    keepAlive: true
-                }
-            }, {
-                // 我的
-                path: 'mine',
-                name: 'mine',
-                component: Mine,
-                children: [{
-                    // 用户中心
-                    path: 'userCenter',
-                    name: 'userCenter',
-                    component: UserCenter,
-                    children: [{
-                        // 修改昵称
-                        path: 'changeNickName',
-                        name: 'ChangeNickName',
-                        component: ChangeNickName
-                    }]
-                }, {//d
-                    // 优惠券
-                    path: 'couponList',
-                    name: 'couponList',
-                    component: CouponList,
-                    meta: {
-                        requireAuth: true
-                    }
-                }, {
-                    // 我的订单
-                    path: 'myOrder',
-                    name: 'myOrder',
-                    component: MyOrder,
-                    meta: {
-                        requireAuth: true
-                    }
-                }, {//d
-                    // 绿卡会员
-                    path: 'myVip',
-                    name: 'myVip',
-                    component: MyVip,
+            children: [
+                {
+                    path: '/dashboard',
+                    redirect: '/dashboard/home',
                     // 是否数据缓存
                     meta: {
-                        keepAlive: true,
-                        requireAuth: true,
+                        keepAlive: true
+                    },
+                },
+                {
+                    // 主页
+                    path: 'home',
+                    name: 'home',
+                    component: Home,
+                    // 是否数据缓存
+                    meta: {
+                        keepAlive: true
                     }
-                }, {//d
-                    path: '/vipPay',
-                    name: 'vipPay',
-                    component: VipPay
-                }, {//d
-                    path: 'switchLanguage',
-                    name: 'switchLanguage',
-                    component: SwitchLanguage
-                }]
-            }, {
-                // 商品详情
-                path: '/goodsDetail',
-                name: 'goodsDetail',
-                component: GoodsDetail
-            }, {//d
-                path: 'map',
-                name: 'map',
-                component: Map,
-            }]
+                },
+                {//d
+                    // 分类
+                    path: 'category',
+                    name: 'category',
+                    component: Category,
+                    // 是否数据缓存
+                    meta: {
+                        keepAlive: true
+                    },
+                },
+                {//d
+                    // 吃什么
+                    path: 'eat',
+                    name: 'eat',
+                    component: Eat,
+                    // 是否数据缓存
+                    meta: {
+                        keepAlive: true
+                    }
+                },
+                {
+                    // 购物车
+                    path: 'cart',
+                    name: 'cart',
+                    component: Cart,
+                    meta: {
+                        keepAlive: true
+                    }
+                },
+                {
+                    // 我的
+                    path: 'mine',
+                    name: 'mine',
+                    component: Mine,
+                    children: [
+                        {
+                            // 用户中心
+                            path: 'userCenter',
+                            name: 'userCenter',
+                            component: UserCenter,
+                            children: [
+                                {
+                                    // 修改昵称
+                                    path: 'changeNickName',
+                                    name: 'ChangeNickName',
+                                    component: ChangeNickName
+                                }
+                            ]
+                        },
+                        {//d
+                            // 优惠券
+                            path: 'couponList',
+                            name: 'couponList',
+                            component: CouponList,
+                            meta: {
+                                requireAuth: true
+                            }
+                        },
+                        {
+                            // 我的订单
+                            path: 'myOrder',
+                            name: 'myOrder',
+                            component: MyOrder,
+                            meta: {
+                                requireAuth: true
+                            }
+                        },
+                        {//d
+                            // 绿卡会员
+                            path: 'myVip',
+                            name: 'myVip',
+                            component: MyVip,
+                            // 是否数据缓存
+                            meta: {
+                                keepAlive: true,
+                                requireAuth: true,
+                            }
+                        },
+                        {//d
+                            path: '/vipPay',
+                            name: 'vipPay',
+                            component: VipPay
+                        },
+                        {//d
+                            path: 'switchLanguage',
+                            name: 'switchLanguage',
+                            component: SwitchLanguage
+                        }
+                    ]
+                },
+                {
+                    // 商品详情
+                    path: '/goodsDetail',
+                    name: 'goodsDetail',
+                    component: GoodsDetail
+                },
+                {//d
+                    path: 'map',
+                    name: 'map',
+                    component: Map,
+                }
+            ]
         },
         {
-            // 订单
+            // 订单页面
             path: '/order',
             name: 'order',
             component: Order,
-            children: [{
-                // 我的地址
-                path: 'myAddress',
-                name: 'myAddress',
-                component: MyAddress,
-                meta: {
-                    requireAuth: true
+            children: [
+                {
+                    // 我的地址
+                    path: 'myAddress',
+                    name: 'myAddress',
+                    component: MyAddress,
+                    meta: {
+                        requireAuth: true
+                    },
+                    children: [
+                        {
+                            // 添加地址
+                            path: 'addAddress',
+                            name: 'addAddress',
+                            component: AddAddress,
+                        },
+                        {
+                            // 编辑地址
+                            path: 'editAddress',
+                            name: 'editAddress',
+                            component: EditAddress
+                        }
+                    ]
                 },
-                children: [{
-                    // 添加地址
-                    path: 'addAddress',
-                    name: 'addAddress',
-                    component: AddAddress,
-                }, {
-                    // 编辑地址
-                    path: 'editAddress',
-                    name: 'editAddress',
-                    component: EditAddress
-                }]
-            }, {
-                path: 'orderGoodsList',
-                name: 'orderGoodsList',
-                component: OrderGoodsList
-            }]
+                {
+                    // 订单商品详情
+                    path: 'orderGoodsList',
+                    name: 'orderGoodsList',
+                    component: OrderGoodsList
+                }
+            ]
+        },
+        {
+            // 支付相关
+            path: '/payment/Success',
+            name: 'Success',
+            component: Success,
         },
         {
             // 登录

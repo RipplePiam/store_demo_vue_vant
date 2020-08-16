@@ -14,8 +14,7 @@
     <div class="goodsDetailWrapper">
       <!-- 商品图 -->
       <div class="goodsImage">
-        <img :src="goodsInfo.small_image"
-             alt="">
+        <img :src="goodsInfo.small_image" alt="">
       </div>
 
       <!-- 限时抢购  -->
@@ -118,10 +117,14 @@ export default {
   },
   data () {
     return {
-      //time: 30 * 60 * 1000 * 100,       // 倒计时时间设置
-      //isFlash: false,                   // 是否是限时抢购
-      //goodsInfo: this.$route.query,
-      //goodsImage: 'https:\/\/img.ddimg.mobi\/3f280ff77ab3d1571213379189.jpg?width=750&height=1869'
+      // 倒计时时间设置
+      //time: 30 * 60 * 1000 * 100,
+      // 是否是限时抢购
+      //isFlash: false,
+      // 商品详情
+      goodsInfo: this.$route.query,
+      // 商品统一说明图
+      goodsImage: 'https:\/\/img.ddimg.mobi\/3f280ff77ab3d1571213379189.jpg?width=750&height=1869'
     }
   },
   computed: {

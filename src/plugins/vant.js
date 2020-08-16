@@ -58,9 +58,7 @@ Vue.use(Tag)
 
 // 15.填写订单
 import { ContactCard, ContactList, ContactEdit } from 'vant'
-Vue.use(ContactCard)
-  .use(ContactList)
-  .use(ContactEdit)
+Vue.use(ContactCard).use(ContactList).use(ContactEdit)
 
 // 16.icon图标
 import { Icon } from 'vant'
@@ -122,10 +120,12 @@ Vue.use(SidebarItem)
 
 // 30.商品导航
 import { GoodsAction, GoodsActionIcon, GoodsActionButton } from 'vant'
-Vue.use(GoodsAction)
-  .use(GoodsActionIcon)
-  .use(GoodsActionButton)
+Vue.use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton)
 
-// 遮罩
+// 31.遮罩
 import { Overlay } from 'vant'
 Vue.use(Overlay)
+
+// 32.layout 行列布局
+import { Col, Row } from 'vant'
+Vue.use(Col).use(Row)

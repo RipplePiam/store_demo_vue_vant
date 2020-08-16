@@ -5,7 +5,7 @@
 <template>
   <div id="myAddress">
     <!--导航栏-->
-    <van-nav-bar :title="$t('order.addLocation')"
+    <van-nav-bar :title="$t('order.myAddress')"
                  left-arrow
                  :fixed=true
                  :border=true

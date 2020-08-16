@@ -180,6 +180,7 @@ export default {
   order: {
     outTimeGetMoney: '超过十分钟可获得积分补偿',
     inputForm: '填写订单',
+    payStatus: '支付状态',
     location: '选择收货地址',
     arrivalTime: '送达时间',
     total: '共',

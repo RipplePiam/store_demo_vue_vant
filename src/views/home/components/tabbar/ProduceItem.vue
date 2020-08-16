@@ -4,20 +4,27 @@
  -->
 <template>
   <div id="produceItem">
+    <!--产品列表-->
     <div class="item"
          v-for="(product,index) in product_lists"
          :key="index"
          @click.stop="goToGoodsDetail(product)">
-      <img v-lazy="product.small_image"
-           alt="">
+      <!--图片懒加载-->
+      <img v-lazy="product.small_image" src="" alt="">
+      <!--标题-->
       <p class="itemTitle">{{product.name}}</p>
+      <!--子标题-->
       <p class="itemSubTitle">{{product.spec}}</p>
+      <!--"吃货节"标签-->
       <span class="tagEat"
             v-if="isShowEatTag">{{$t('home.foodie')}}</span>
+      <!--价格-->
       <span class="price">
         {{product.price | moneyFormat}}
       </span>
+      <!--原价-->
       <span class="originPrice">{{product.origin_price | moneyFormat}}</span>
+      <!--购物车按钮-->
       <div class="buyCar"
            @click.stop="addCart(product)">
         <svg-icon iconClass="car"

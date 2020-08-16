@@ -67,20 +67,21 @@ export default {
           normal: require('@/images/tabbar/home_default.png'),
           active: require('@/images/tabbar/home_selected.png')
         },
-        {
-          name: 'category',
-          title: 'home.category',
-          normal: require('@/images/tabbar/category_default.png'),
-          active: require('@/images/tabbar/category_selected.png')
-        },
-          /*
-        {
-          name: 'eat',
-          title: 'home.eat',
-          normal: require('@/images/tabbar/eat_default.png'),
-          active: require('@/images/tabbar/eat_selected.png')
-        },
-           */
+        /*
+      {
+        name: 'category',
+        title: 'home.category',
+        normal: require('@/images/tabbar/category_default.png'),
+        active: require('@/images/tabbar/category_selected.png')
+      },
+
+      {
+        name: 'eat',
+        title: 'home.eat',
+        normal: require('@/images/tabbar/eat_default.png'),
+        active: require('@/images/tabbar/eat_selected.png')
+      },
+         */
         {
           name: 'cart',
           title: 'home.cart',
@@ -133,10 +134,10 @@ export default {
     tabbarSelected(item) {
       const mapType = {
         home: 0,
-        category: 1,
+        //category: 1,
         //eat: 2,
-        cart: 2,
-        mine: 3
+        cart: 1,
+        mine: 2
       }
       this.active = mapType[item]
     }

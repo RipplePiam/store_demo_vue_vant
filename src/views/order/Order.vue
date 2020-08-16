@@ -18,7 +18,7 @@
                       @click="chooseAddress"
                       style="margin-top:3rem" />
 
-    <!-- 选择送达时间 -->
+    <!-- 所选商品 -->
     <van-cell-group>
       <!-- 商品缩略图 -->
       <div class="wrapper"
@@ -37,7 +37,7 @@
           </ul>
         </div>
         <ul class="productCount">
-          <span>{{selectedCount}}</span>
+          {{selectedCount}}
           <van-icon name="arrow" />
         </ul>
       </div>
@@ -63,13 +63,14 @@
     <!-- 支付方式选择 -->
     <van-radio-group v-model="radio">
       <van-cell-group :title="$t('mine.payMethod')">
+        <!--微信支付-->
         <van-cell clickable
                   @click="radio = '1'">
           <template slot="title">
             <img src="./../../images/order/wx.png"
                  alt=""
-                 width="25px"
-                 height="25px"
+                 width="32"
+                 height="32"
                  style=" vertical-align: middle;padding-right:5px">
             <span>{{$t('order.wechatPay')}}</span>
           </template>
@@ -77,13 +78,14 @@
                      name="1"
                      checked-color="#07c160" />
         </van-cell>
+        <!--支付宝支付-->
         <van-cell clickable
                   @click="radio = '2'">
           <template slot="title">
             <img src="./../../images/order/zfb.png"
                  alt=""
-                 width="25px"
-                 height="25px"
+                 width="32"
+                 height="32"
                  style=" vertical-align: middle;padding-right:5px">
             <span>{{$t('order.aliPay')}}</span>
           </template>
@@ -91,14 +93,15 @@
                      name="2"
                      checked-color="#07c160" />
         </van-cell>
+        <!--花呗支付-->
         <van-cell clickable
                   @click="radio = '3'">
           <template slot="title">
             <img src="./../../images/order/hb.png"
                  alt=""
-                 width="25px"
-                 height="25px"
-                 style=" vertical-align: middle;padding-right:5px">
+                 width="32"
+                 height="32"
+                 style=" vertical-align: middle; padding-right:5px">
             <span>{{$t('order.huabeiPay')}}</span>
           </template>
           <van-radio slot="right-icon"
@@ -133,15 +136,18 @@
 
     <!-- 备注 -->
     <van-cell-group style="margin-top: 0.6rem">
-      <van-field :label="$t('order.mark')"
-                 type="textarea"
-                 :placeholder="$t('order.tip')"
-                 rows="1"
-                 autosize="1"
-                 is-link />
+      <van-field
+          rows="2"
+          autosize=""
+          :label="$t('order.mark')"
+          type="textarea"
+          maxlength="30"
+          :placeholder="$t('order.tip')"
+          show-word-limit
+      />
     </van-cell-group>
 
-    <!-- 商品金额 -->
+    <!-- 商品费用 -->
     <van-cell-group style="margin-top: 0.6rem">
       <!--商品金额-->
       <van-cell :title="$t('order.totalMoney')">
@@ -149,7 +155,7 @@
       </van-cell>
       <!--配送费-->
       <van-cell :title="$t('order.sendMoney')">
-        <div class="money">0.00</div>
+        <div class="money">{{sendPrice/100 |moneyFormat}}</div>
       </van-cell>
       <!--积分-->
       <!--<van-cell :title="$t('order.point')"
@@ -194,6 +200,7 @@ export default {
       address_id: null,              // 收货人地址ID
 
       radio: '1',                    // 支付方式  
+      sendPrice: 500                 // 配送费
 
       //checked: false,                // 积分兑换开关 //d
       //isShowPreferential: false,     // 展示积分兑换 //d
@@ -238,10 +245,12 @@ export default {
     }),
     // 实际价格
     actualPrice () {
-      // 如果用户使用积分兑换或使用优惠券
+
       let finalPrice;
-      finalPrice=finalPrice+0;
+      finalPrice=this.selectedTotalPrice + this.sendPrice;
       return finalPrice;//add
+
+      // 如果用户使用积分兑换或使用优惠券
       /*
       if (this.checked) {
         let discountsPrice = this.integralToprice.toFixed(2).toString().replace('.', '');
@@ -294,7 +303,10 @@ export default {
   components: {
     //TimeIntervalList //d
   },
+  // 创建
+  created(){
 
+  },
   // 方法
   methods: {
     // 初始化本地购物车数据
@@ -320,28 +332,32 @@ export default {
       this.$router.back();
     },
 
-    // 3.提交订单
-    onSubmit () {
+    // 3.商品清单
+    goToGoodsList () {
+      this.$router.push({ name: 'orderGoodsList' })
+    },
+
+    // 4.选择地址
+    chooseAddress () {
+      this.$router.push('/order/myAddress');
+    },
+
+    // 5.提交订单
+    onSubmit(){
       if (!this.address_name) {
         Toast({
           message: '请选择收货地址',
           duration: 800
         });
       }
-      /*else if (this.$t('deliveryTime') == this.$t('deliveryTime')) {
-        Toast({
-          message: this.deliveryTime,
-          duration: 800
-        });
-      }*/
-      else {
-        Toast({
-          message: this.$t('order.sendForm'),// msg:提交订单
-          duration: 800
-        });
-      }
+      else{
+        let instance = Toast('订单'+'提交成功');
 
-      // 后续缺失付款等页面
+        setTimeout(() => {
+          instance.close();
+          this.$router.push('../payment/Success');
+        }, 800)
+      }
     },
 
     // 4.switch开关
@@ -359,16 +375,6 @@ export default {
         this.isShowPreferential = !this.isShowPreferential;
       }
     },*/
-
-    // 商品清单
-    goToGoodsList () {
-      this.$router.push({ name: 'orderGoodsList' })
-    },
-
-    // 选择地址
-    chooseAddress () {
-      this.$router.push('/order/myAddress');
-    }//,
 
     // 选择优惠券
     /*onChange (index) {

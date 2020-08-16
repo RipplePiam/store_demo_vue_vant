@@ -68,7 +68,7 @@ export default {
     },
     // 2.页面初始化,获取本地购物车的数据
     [INIT_SHOP_CART](state) {
-        // 2.1 先存本地取购物车数据
+        // 2.1 先存取本地购物车数据
         let initShopCart = getLocalStore('shopCart');
         if (initShopCart) {
             // 2.1 如何购物车有数据那么就把它通过对象的方式赋值给store
