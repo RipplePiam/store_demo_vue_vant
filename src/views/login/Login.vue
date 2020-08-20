@@ -25,8 +25,7 @@
                          clearable
                          :label="$t('login.phoneNumber')"
                          maxlength="11"
-                         @click.stop="
-                         changeImage(0)"
+                         @click.stop="changeImage(0)"
                          :error-message="phoneNumberRight?'':$t('login.phoneNumberNotCorrect')"
                          :placeholder="$t('login.phoneInput')" />
               <van-field v-model="login_password"

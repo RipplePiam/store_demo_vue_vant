@@ -129,3 +129,7 @@ Vue.use(Overlay)
 // 32.layout 行列布局
 import { Col, Row } from 'vant'
 Vue.use(Col).use(Row)
+
+// 33.商品卡片
+import { Card } from 'vant';
+Vue.use(Card);

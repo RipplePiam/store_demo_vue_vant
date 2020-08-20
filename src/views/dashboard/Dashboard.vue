@@ -120,7 +120,7 @@ export default {
 
   methods: {
     // 0. 延展mutations方法
-    ...mapMutations(['INIT_SHOP_CART', 'INIT_USER_INFO']),//Vuex突变
+    ...mapMutations(['INIT_SHOP_CART', 'INIT_USER_INFO','INIT_ORDER']),//Vuex突变
     // 1.点击tabbar触发的方法
     tab(index, val) {
       this.currIndex = index
@@ -130,6 +130,7 @@ export default {
     _initData() {
       this.INIT_SHOP_CART()
       this.INIT_USER_INFO()
+      this.INIT_ORDER()
     },
     tabbarSelected(item) {
       const mapType = {

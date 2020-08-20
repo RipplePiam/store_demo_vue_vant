@@ -64,7 +64,6 @@
 <script>
 import {mapGetters} from "vuex";
 export default {
-  name: "Success",
   data() {
     return{
       sendPrice: 500  // 配送费

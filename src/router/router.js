@@ -33,7 +33,7 @@ const MyVip = () => import('../views/mine/Children/MyVip.vue')//d
 const VipPay = () => import('../views/mine/Children/MyVipChildren/VipPay.vue')//d
 // 我的订单
 const MyOrder = () => import('../views/mine/Children/MyOrder');
-// 订单商品页
+// 订单商品清单
 const OrderGoodsList = () => import('../views/order/children/OrderGoodsList')
 // 商品详情页
 const GoodsDetail = () => import('../components/goodsDetail/GoodsDetail.vue');
@@ -48,7 +48,7 @@ const EditAddress = () => import('../views/order/children/children/EditAddress.v
 
 // 支付相关
 // 支付成功页
-const Success = () => import('../views/payment/Payment')
+const Payment = () => import('../views/payment/Payment')
 
 // 注册登录
 const Login = () => import('../views/login/Login.vue');
@@ -242,9 +242,9 @@ const router = new Router({
         },
         {
             // 支付相关
-            path: '/payment/Success',
-            name: 'Success',
-            component: Success,
+            path: '/payment/Payment',
+            name: 'Payment',
+            component: Payment,
         },
         {
             // 登录

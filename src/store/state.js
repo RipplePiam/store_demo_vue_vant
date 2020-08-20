@@ -8,5 +8,8 @@ export default {
     userInfo: {},
     // 收货地址
     shippingAddress: [],
+    // 已购商品
+    Purchased: {},
+    // 语言
     language: getLanguage()
 }

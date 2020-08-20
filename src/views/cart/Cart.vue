@@ -69,7 +69,6 @@
                         checked-color='#45c763'>{{$t('car.all')}}</van-checkbox>
         </van-submit-bar>
       </div>
-      <!-- 猜你喜欢 -->
       <van-divider :style="{ color: 'black', borderColor: 'grey', padding: '0 16px' }">
         {{$t('car.guess')}}
       </van-divider>

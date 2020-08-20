@@ -1,3 +1,4 @@
+// 定义rem
 (function (doc, win) {
     const docEl = doc.documentElement,//var->const
         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',

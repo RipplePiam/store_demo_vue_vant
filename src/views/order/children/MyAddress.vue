@@ -49,7 +49,6 @@ export default {
     }
   },
   computed: {
-
     ...mapState(['shippingAddress']),
   },
   mounted () {

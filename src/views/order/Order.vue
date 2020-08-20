@@ -189,6 +189,7 @@ import { CHOOSE_USER_ADDRESS } from '@/config/pubsub_type'
 import PubSub from 'pubsub-js'
 // 送货时间区间组件
 import TimeIntervalList from './children/TimeIntervalList'
+import {SELECTED_GOODS} from "@/store/mutation-type";
 
 export default {
   // 数据
@@ -310,7 +311,7 @@ export default {
   // 方法
   methods: {
     // 初始化本地购物车数据
-    ...mapMutations(['INIT_SHOP_CART']),
+    ...mapMutations(['INIT_SHOP_CART','INIT_ORDER']),
 
     // 1.初始化滚动视图
     _initScroll () {
@@ -355,7 +356,24 @@ export default {
 
         setTimeout(() => {
           instance.close();
-          this.$router.push('../payment/Success');
+          // 添加到已购订单
+              /*let addressID = this.addressID().toString();
+              let demo=this.chooseAddress;
+              content['id'] = addressID;
+              content['address'] = content.province + content.city + content.county + content.addressDetail;
+              this.ADD_USER_SHOPPING_ADDRESS({
+                addressID,
+                content
+              });
+              this.$router.back();
+            },
+            // 生成不重复的id
+            addressID () {
+          var lastUuid = 0;
+          return (new Date()).getTime() * 1000 + (lastUuid++) % 1000;
+        }*/
+          // 显示订单支付情况
+          this.$router.push('../payment/Payment');
         }, 800)
       }
     },

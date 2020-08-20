@@ -4,8 +4,11 @@
  -->
 <template>
   <div id="orderType">
-    <div v-if="orderTypeDataArray.length>0">
+    <!--有订单的情况-->
+    <div v-if="orderTypeDataArray.length>0"><!--修改orderTypeDataArray-->
+      <!--something-->
     </div>
+    <!--没有订单的情况-->
     <div v-else
          class="noDataPlaceHold">
       <img src="./../../../../images/mine/noData.jpeg"

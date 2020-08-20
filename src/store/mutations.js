@@ -15,14 +15,14 @@ import {
     INIT_USER_SHOPPING_ADDRESS,
     ADD_USER_SHOPPING_ADDRESS,
     DELETE_USER_SHOPPING_ADDRESS,
-    CHANGE_USER_SHOPPING_ADDRESS
+    CHANGE_USER_SHOPPING_ADDRESS,
+    ADD_TO_ORDER,
+    INIT_ORDER
 } from './mutation-type'
 import Vue from 'vue'
 import Cookies from "js-cookie";
 
-import {
-    Toast
-} from 'vant'
+import { Toast } from 'vant'
 import router from '@/router/router'
 // 引入本地存储
 import {
@@ -101,6 +101,7 @@ export default {
             setLocalStore('shopCart', state.shopCart);
         }
     },
+
     // 4.单个商品选中
     [SINGLE_SELECT_GOODS](state, {
         goodsID
@@ -117,7 +118,7 @@ export default {
                 // 4.5 取反
                 goods.checked = !goods.checked;
             } else {
-                // 4.6 不存在那么就设置默认值
+                // 4.6 不存在那么就设置checked
                 Vue.set(goods, 'checked', true);
             }
         }
@@ -128,6 +129,7 @@ export default {
         // 4.8 将数据更新到本地
         setLocalStore('shopCart', state.shopCart);
     },
+
     // 5.全选商品 外界出过来一个isSelected
     [ALL_SELECT_GOODS](state, {
         isCheckedAll
@@ -148,6 +150,7 @@ export default {
         // 5.3 将数据更新到本地
         setLocalStore('shopCart', state.shopCart);
     },
+
     // 6.删除选中商品
     [DELETE_SELECT_GOODS](state) {
         // 6.1 取出state中的商品数据
@@ -175,6 +178,7 @@ export default {
         // 7.2 保存到本地缓存中
         setLocalStore('userInfo', state.userInfo);
     },
+
     //  8.初始化获取用户信息
     [INIT_USER_INFO](state) {
         // 8.1 先存本地用户数据
@@ -183,6 +187,7 @@ export default {
             state.userInfo = JSON.parse(initUserInfo);
         }
     },
+
     // 9.修改昵称
     [CHANGE_USER_NICK_NAME](state, {
         nickName
@@ -191,7 +196,7 @@ export default {
         let userInfo = state.userInfo;
         // 9.2 遍历userInfo的key取出User_name,替换Value值
         Object.keys(userInfo).forEach((info, index) => {
-            if (info == 'user_name') {
+            if (info === 'user_name') {
                 userInfo['user_name'] = nickName;
             }
         });
@@ -225,6 +230,7 @@ export default {
         // 10.5 将数据更新到本地
         setLocalStore('userInfo', state.userInfo);
     },
+
     // 11.用户性别
     [USER_INFO_SEX](state, {
         sex
@@ -251,10 +257,13 @@ export default {
     [LOGIN_OUT](state) {
         state.userInfo = {};
         state.shopCart = {};
+        state.Purchased = {};
         removeLocalStore('userInfo');
         removeLocalStore('shopCart');
+        removeLocalStore('Purchased'),
         removeLocalStore('shippingAddress');
     },
+
     //  16.初始化获取用户收货地址
     [INIT_USER_SHOPPING_ADDRESS](state) {
         let initUsershoppingAddress = getLocalStore('shippingAddress');
@@ -280,6 +289,7 @@ export default {
         // 18.2 更新本地数据
         setLocalStore('shippingAddress', state.shippingAddress);
     },
+
     // 19.修改用户地址信息
     [CHANGE_USER_SHOPPING_ADDRESS](state, {
         content
@@ -290,7 +300,8 @@ export default {
         // 19.2 更新本地数据
         setLocalStore('shippingAddress', state.shippingAddress);
     },
-    // 添加商品进购物车
+
+    // 20.添加商品进购物车
     [ADD_TO_CART](state, goods) {
         // 判断是否有用户登录
         if (state.userInfo.token) {
@@ -313,7 +324,28 @@ export default {
             router.push('/login');
         }
     },
-    // 切换语言
+
+    // 21.添加商品到已购订单
+    [ADD_TO_ORDER](state, {
+        content
+    }){
+        // 21.1 给Purchased产生新对象并添加
+        state.Purchased = [...state.Purchased, content];
+        // 21.2 将数据存储到本地
+        setLocalStore('Purchased', state.Purchased);
+    },
+
+    // 22.初始化已购订单
+    [INIT_ORDER](state){
+        // 22.1 先存取本地已购订单数据
+        let initPurchased = getLocalStore('Purchased');
+        if (initPurchased) {
+            // 22.2 如何已购订单有数据那么就把它通过对象的方式赋值给store
+            state.Purchased = JSON.parse(initPurchased);
+        }
+    },
+
+    // 22.切换语言
     SET_LANGUAGE: (state, language) => {
         state.language = language;
         Cookies.set("language", language);

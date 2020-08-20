@@ -40,7 +40,7 @@ import { mapMutations } from 'vuex'
 
 export default {
   props: {
-    product_lists: Array
+    product_lists: Array    // 传出商品数据
   },
   data () {
     return {

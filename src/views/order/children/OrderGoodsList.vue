@@ -1,5 +1,5 @@
 <!--
- * @Description: 订单->订单商品详情
+ * @Description: 订单->订单商品清单
  * @FilePath: /src/views/order/children/OrderGoodsList.vue
  -->
  <template>

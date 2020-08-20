@@ -40,7 +40,7 @@
         <div slot="title">
           <span>{{itemsTitle[2]}}</span>
         </div>
-        <OrderType :orderTypeDataArray="typeArray" />
+        <OrderType :orderTypeDataArray="typeArray" /><!--typeArray 改为 Purchased数据-->
       </van-tab>
       <!-- 待评价-->
       <van-tab>
@@ -67,6 +67,7 @@ export default {
     OrderType
   },
   methods: {
+    // 类似Home组件一样定义不同的typeArray，并在上方进行匹配
     onClickLeft () {
       this.$router.back();
     }

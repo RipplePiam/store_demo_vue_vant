@@ -21,13 +21,13 @@ export default function ajax(url = '', params = {}, type = 'GET') {
                 paramsStr = paramsStr.substr(0, paramsStr.lastIndexOf('&'));
                 // 2.5 拼接完整路径
                 if (url.indexOf('127.0.0.1') === -1) {
-                    url += '?' + paramsStr + '&Geek-James=' + randomCode(20);
+                    url += '?' + paramsStr + '&Geek-=' + randomCode(20);
                 } else {
                     url += '?' + paramsStr;
                 }
             } else {
                 if (url.indexOf('127.0.0.1') === -1) {
-                    url += '?Geek-James=' + randomCode(20)
+                    url += '?Geek-=' + randomCode(20)
                 }
             }
             // 2.6 发起get请求

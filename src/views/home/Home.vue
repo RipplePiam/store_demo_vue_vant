@@ -26,8 +26,8 @@
       <!--<SpecialZone :specialZone="specialZone" />-->
 
       <!--TabbarItem 商品 -->
-      <TabbarGoodsItem :tabbar_all_product_list="tabbar_all_product_list" />
-                       <!--:flash_sale_product_list="flash_sale_product_list" />-->
+      <TabbarGoodsItem :tabbar_all_product_list="tabbar_all_product_list"
+                       :flash_sale_product_list="flash_sale_product_list" />
       <!-- 最底部 -->
       <van-divider>{{ $t('home.bottomTip') }}</van-divider>
     </div>
@@ -72,7 +72,7 @@ export default {
       //sowing_list: [],             // 首页轮播图列表
       isShowLoading: true,           // 是否加载动画
       //nav_list: [],                // 轮播
-      //flash_sale_product_list: [], // 限时抢购
+      flash_sale_product_list: [],   // 限时抢购
       tabbar_all_product_list: [],   // 顶部标签栏列表
       //specialZone: {},             // 特色专区数据
       //home_ad: ''                  // 首页广告
@@ -84,7 +84,7 @@ export default {
     //Tip,
     //Nav,
     //VipTip,
-    //FlashBuy,
+    FlashBuy,
     //SpecialZone,
     TabbarGoodsItem,
     Loading,
@@ -103,7 +103,7 @@ export default {
         // navList 赋值
         //this.nav_list = data.list[2].icon_list
         // 给限时抢购赋值
-        //this.flash_sale_product_list = data.list[3].product_list
+        this.flash_sale_product_list = data.list[3].product_list
         // 给Tabbar 商品列表赋值
         this.tabbar_all_product_list = data.list[12].product_list
         this.isShowLoading = false
