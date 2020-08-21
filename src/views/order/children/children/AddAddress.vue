@@ -9,6 +9,7 @@
                  :fixed=true
                  :border=true
                  @click-left="onClickLeft"></van-nav-bar>
+    <!--AddressEdit 地址编辑，返回参数：content(表单内容)-->
     <van-address-edit :area-list="areaList"
                       show-postal
                       show-set-default
@@ -22,9 +23,8 @@
 
 <script type="text/javascript">
 
-import { mapMutations, mapState } from 'vuex'
+import { mapMutations } from 'vuex'
 
-import { Toast } from 'vant'
 import areaList from './../../../../config/area.js'
 export default {
   data () {
@@ -37,23 +37,28 @@ export default {
 
   },
   methods: {
+
     ...mapMutations(['ADD_USER_SHOPPING_ADDRESS']),
     // 1.返回上级界面
     onClickLeft () {
       this.$router.go(-1);
     },
-    // 2. 保存
+
+    // 2. 保存（content是表单内容）
     onSave (content) {
-      let addressID = this.addressID().toString();
+      let addressID;
+      addressID = this.addressID().toString();
+      // 2.1添加content的内容：id、address
       content['id'] = addressID;
       content['address'] = content.province + content.city + content.county + content.addressDetail;
+      // 2.2添加到本地用户送货地址数据中
       this.ADD_USER_SHOPPING_ADDRESS({
-        addressID,
         content
       });
       this.$router.back();
     },
-    // 生成不重复的id
+
+    // 3. 生成不重复的id
     addressID () {
       var lastUuid = 0;
       return (new Date()).getTime() * 1000 + (lastUuid++) % 1000;

@@ -37,7 +37,6 @@
 │   │   ├── pubsub_type.js
 │   │   └── rem.js
 │   ├── i18n
-│   │   ├── en.js
 │   │   ├── index.js
 │   │   └── zh.js
 │   ├── icons

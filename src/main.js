@@ -10,9 +10,7 @@ import FastClick from 'fastclick'
 import VTop from './components/backToTop/ToTop.vue'
 import i18n from "./i18n/index";
 import VueI18n from "vue-i18n";
-import LangENUS from './i18n/en'
-import LangZHCN from './i18n/zh'
-import './icons' // icon
+import './icons'
 
 // 解决移动端点击延迟200ms的问题
 if ('addEventListener' in document) {

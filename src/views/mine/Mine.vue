@@ -67,47 +67,21 @@
     </van-cell-group>
 
     <van-cell-group style="margin-top:0.4rem">
-      <!--我的优惠券-->
-      <!--<van-cell :title="$t('mine.myBill')"
-                icon="gold-coin"
-                :value="userInfo.token?'2':''"
-                @click="goToPage('couponList')"
-                is-link />-->
+
       <!--我的收货地址-->
       <van-cell :title="$t('mine.myLocation')"
                 icon="todo-list"
                 is-link
                 @click="goToPage('myAddress')" />
     </van-cell-group>
-      <!--我的绿卡-->
-    <!--<van-cell-group style="margin-top:0.4rem">
-      <van-cell is-link
-                icon="vip-card"
-                @click="goToPage('myVip')">
-        <template slot="title">
-          <span class="custom-title">{{$t('mine.myCar')}}</span>
-          <van-tag type="danger"
-                   :round=true>NEW</van-tag>
-        </template>
-      </van-cell>
-    </van-cell-group>-->
+
 
     <van-cell-group style="margin-top:0.4rem">
-      <!-- 联系客服 -->
-      <!--<van-cell :title="$t('mine.servier')"
-                icon="phone"
-                :value="$t('mine.servierTime')"
-                is-link />-->
       <!-- 意见反馈 -->
       <van-cell :title="$t('mine.feedback')"
                 icon="comment-circle"
                 is-link
                 @click="onFeedBack" />
-      <!-- 语言切换 -->
-      <!--<van-cell :title="$t('mine.switchLanguage')"
-                icon="clock"
-                @click="onSwitchLanguage"
-                is-link />-->
     </van-cell-group>
 
     <div class="version">{{$t('mine.version')}}{{version}}</div>
@@ -147,7 +121,6 @@ export default {
     }
   },
   mounted () {
-    console.log("🎉 努力遇到最好的自己 ✨✨");
   },
   computed: {
     ...mapState(['userInfo']),
@@ -183,11 +156,7 @@ export default {
       }).then(() => {
         // on close
       });
-    }//,
-    // 切换语言
-    /*onSwitchLanguage () {
-      this.$router.push({ name: 'switchLanguage' });
-    }*///d
+    }
   }
 }
 </script>

@@ -56,7 +56,7 @@
                          maxlength="11"
                          :label="$t('login.phoneNumber')"
                          :placeholder="$t('login.phoneInput')"
-                         :error-message="phoneNumberRight?'':$('login.phoneNumberNotCorrect')" />
+                         :error-message="phoneNumberRight?'':$t('login.phoneNumberNotCorrect')" />
               <van-field center
                          clearable
                          required
@@ -107,21 +107,6 @@
           </van-tab>
         </van-tabs>
 
-        <!-- 第三方登录 -->
-        <!--<van-divider :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 5px' }">
-          {{$t('login.otherMethods')}}
-        </van-divider>
-        <van-grid :column-num="2"
-                  :border=false>
-          <van-grid-item @click="thirdLogin(0)">
-            <svg-icon iconClass="wechat" />
-            <div class="title">{{$t('login.wechat')}}</div>
-          </van-grid-item>
-          <van-grid-item @click="thirdLogin(1)">
-            <svg-icon iconClass="QQ" />
-            <div class="title">{{$t('login.qqchant')}}</div>
-          </van-grid-item>
-        </van-grid>-->
         <!-- 底部声明 -->
         <p class="agreement"> {{$t('login.tipTile')}}<br>{{$t('login.tipContent')}}<a @click.stop="agreement(0)"
              class="agreement-box">{{$t('login.tip')}}</a>、<a @click.stop=agreement(1)
@@ -137,14 +122,14 @@ import { Toast, Dialog } from 'vant'
 // 引入API调用接口
 import { getPhoneCaptcha, phoneCaptchaLogin, pwdLogin } from '../../serve/api/index.js'
 // 引入vuex
-import { mapState, mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   data () {
     return {
       countDown: 0,                 // 倒计时
       active: 0,
-      login_userName: '',            // 用户名
+      login_userName: '',           // 用户名
       login_password: '',           // 用户密码
       login_phone: '',              // 手机号码
 
@@ -173,11 +158,7 @@ export default {
     },
     // 2.发送验证码按钮显示
     captchaDisable () {
-      if (this.login_phone.length > 10 && this.phoneNumberRight) {
-        return false;
-      } else {
-        return true;
-      }
+      return !(this.login_phone.length > 10 && this.phoneNumberRight);
     }
   },
   methods: {
@@ -189,9 +170,9 @@ export default {
     },
     // 2.切换萌猫图片
     changeImage (index) {
-      if (index == 0) {
+      if (index === 0) {
         this.imageURL = require('./../../images/login/greeting.png')
-      } else if (index == 1) {
+      } else if (index === 1) {
         this.imageURL = require('./../../images/login/blindfold.png')
       } else {
         this.imageURL = require('./../../images/login/normal.png')
@@ -209,14 +190,14 @@ export default {
       this.timeIntervalID = setInterval(() => {
         this.countDown--;
         // 4.1 如果减到0 则清除定时器
-        if (this.countDown == 0) {
+        if (this.countDown === 0) {
           clearInterval(this.timeIntervalID);
         }
       }, 1000)
 
       // 4.2 获取短信验证码
       let result = await getPhoneCaptcha(this.login_phone);
-      if (result.success_code == 200) {
+      if (result.success_code === 200) {
         this.smsCaptchaResult = result.data.code;
         // 4.3  获取验证码成功
         Dialog.alert({
@@ -237,7 +218,7 @@ export default {
             duration: 800
           });
           return;
-        } else if (this.smsCaptcha < 7 || this.smsCaptcha != Number(this.smsCaptchaResult)) {
+        } else if (this.smsCaptcha < 6 || this.smsCaptcha != Number(this.smsCaptchaResult)) {
           // 5.1.2 验证验证码
           Toast({
             message: this.$t('login.pleaseInputCorrectVerifyumber'),
@@ -316,7 +297,7 @@ export default {
     },
     // 7.用户协议
     agreement (index) {
-      if (index == 0) {
+      if (index === 0) {
         Toast({
           message: this.$t('login.tip'),
           duration: 800
@@ -332,21 +313,6 @@ export default {
     close () {
       this.$router.back();
     },
-    // 9.第三方登录
-    /*thirdLogin (value) {
-
-      if (value == 0) {
-        Toast({
-          message: this.$t('login.otherWechat'),
-          duration: 800
-        });
-      } else {
-        Toast({
-          message: this.$t('login.otherQQ'),
-          duration: 800
-        });
-      }
-    },*/
     // 正则验证
     phoneRegex (number) {
       return (/[1][3,4,5,6,7,8][0-9]{9}$/.test(number));
@@ -426,7 +392,6 @@ export default {
   color: grey;
 }
 .agreement {
-  // margin-top: 1.667rem;
   line-height: 1rem;
   color: #767676;
   font-size: 0.867rem;

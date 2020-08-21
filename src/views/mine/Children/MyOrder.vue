@@ -52,21 +52,37 @@
     </van-tabs>
   </div>
 </template>
+
 <script type="text/javascript">
 import OrderType from './MyOrderChildren/OrderType'
+// 引入Vuex
+import { mapMutations, mapState } from 'vuex'
+
 export default {
+  props: {
+    PurchasedList: Array,
+  },
+  computed: {
+    ...mapState(['Purchased'])
+  },
   data () {
     return {
       typeArray: [],
+
       // 路由传递过来的数据 active
       active: this.$route.params.active,
       itemsTitle: this.$t('mine.itemsTitle'),
     }
   },
+  mounted(){
+    //初始化订单数据
+    this.INIT_ORDER()
+  },
   components: {
     OrderType
   },
   methods: {
+    ...mapMutations(['INIT_ORDER']),
     // 类似Home组件一样定义不同的typeArray，并在上方进行匹配
     onClickLeft () {
       this.$router.back();

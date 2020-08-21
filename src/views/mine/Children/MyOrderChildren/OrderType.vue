@@ -7,6 +7,16 @@
     <!--有订单的情况-->
     <div v-if="orderTypeDataArray.length>0"><!--修改orderTypeDataArray-->
       <!--something-->
+      <div v-for="(purchasedlist, index) in orderTypeDataArray"
+           key="index">
+        <!--<van-card
+            num="{{purchasedlist.num}}"
+            price="{{purchasedlist.finalPrice}}"
+            desc=""
+            title="{{purchasedlist.name}}"
+            thumb="{{purchasedlist.smallImage}}"
+        />-->
+      </div>
     </div>
     <!--没有订单的情况-->
     <div v-else

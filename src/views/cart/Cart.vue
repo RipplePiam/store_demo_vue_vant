@@ -76,7 +76,6 @@
       <produceItem :product_lists="youLike_product_lists"
                    :style="isShowEmptyCart?'padding-bottom:5.5rem':'padding-bottom:3rem'" />
     </div>
-    <Loading :show="isShowLoading" />
     <!-- 回到顶部组件 -->
     <v-top />
   </div>
@@ -86,17 +85,14 @@
 // 引入组件
 import ProduceItem from './../home/components/tabbar/ProduceItem'
 import { getGuessYouLike } from '@/serve/api'
-import Loading from '../../components/loading/LoadingGif'
 // 引入Vuex
 import { mapMutations, mapState, mapGetters } from 'vuex'
-import { getLocalStore } from '@/config/global';
 // 引入提示框
 import { Dialog, Toast } from 'vant';
 export default {
   mounted () {
     // 初始化数据
     this._initData();
-    console.log("🎉 欢迎使用~~ ✨✨");
   },
   data () {
     return {
@@ -106,8 +102,7 @@ export default {
     }
   },
   components: {
-    ProduceItem,
-    Loading
+    ProduceItem
   },
   computed: {
     // 0.结算数量

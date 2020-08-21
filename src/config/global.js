@@ -2,6 +2,7 @@
 export const setLocalStore = (name, content) => {
     if (!name) return
     if (typeof content !== 'string') {
+        // 将非字符串类型的content字符串化为JSON格式
         content = JSON.stringify(content)
     }
     window.localStorage.setItem(name, content)

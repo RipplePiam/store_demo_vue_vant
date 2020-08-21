@@ -26,7 +26,6 @@
 
 <script type="text/javascript">
 import { Toast } from 'vant'
-import { phoneCaptchaLogin } from './../../../serve/api/index.js'
 import { mapMutations } from 'vuex';
 
 export default {

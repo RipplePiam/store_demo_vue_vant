@@ -1,18 +1,10 @@
-import {
-    SELECTED_GOODS_COUNT,
-    SELECTED_GOODS,
-    SELECTED_GOODS_PRICE,
-    USER_SEX
-} from "./mutation-type";
+// 引入突变类型
+import {USER_SEX} from "./mutation-type";
 
 // 引入本地存储
-import {
-    getLocalStore,
-    setLocalStore,
-    removeLocalStore
-} from '@/config/global'
 
 export default {
+
     // 1. 选中商品的数量
     SELECTED_GOODS_COUNT(state) {
         // 3.1 取出state中的商品数据
@@ -20,12 +12,12 @@ export default {
         let shopCart = state.shopCart;
         Object.values(shopCart).forEach((goods, index) => {
             if (goods.checked) {
-                // 6.2删除选中商品
                 count++;
             }
         });
         return count;
     },
+
     // 2.选中的商品
     SELECTED_GOODS(state) {
         let goodsArray = [];
@@ -39,6 +31,7 @@ export default {
         });
         return goodsArray;
     },
+
     // 3.选中商品的价格
     SELECTED_GOODS_PRICE(state) {
         let totalPrice = 0;
@@ -51,6 +44,7 @@ export default {
         });
         return totalPrice;
     },
+
     // 性别
     [USER_SEX](state) {
         if (state.userInfo.sex === '1') {

@@ -1,6 +1,6 @@
 import {
     getLanguage
-} from "@/i18n/index";
+} from "@/i18n";
 export default {
     // 购物车数据
     shopCart: {},
@@ -9,7 +9,7 @@ export default {
     // 收货地址
     shippingAddress: [],
     // 已购商品
-    Purchased: {},
+    Purchased: [],
     // 语言
     language: getLanguage()
 }

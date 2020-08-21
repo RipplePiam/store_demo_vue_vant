@@ -1,6 +1,5 @@
 <!--
  * @Description: GoodsDetail 商品详情页组件 （由于是Mock数据->通过上级页面通过路由的query传值）
- * @supplement   企业开发,只需要拿到商品的id然后请求获取数据
  * @FilePath: /src/components/goodsDetail/GoodsDetail.vue
  -->
 
@@ -16,32 +15,6 @@
       <div class="goodsImage">
         <img :src="goodsInfo.small_image" alt="">
       </div>
-
-      <!-- 限时抢购  -->
-      <!--
-      <div class="flash"
-           v-show="goodsInfo.isFlash">
-        <div class="flashLeft">
-          <span>{{$t('home.limitBuy')}}</span>
-          <i>{{$t('goodsDetail.shopping')}}</i>
-        </div>
-        <div class="flashRight">
-          <span>{{$t('goodsDetail.end')}}</span>
-          <!- - 倒计时 - ->
-          <van-count-down :time="time"
-                          class="countStyle"
-                          format="HH mm ss">
-            <template v-slot="timeData">
-              <span class="item">{{ timeData.hours }}</span>
-              <i>:</i>
-              <span class="item">{{ timeData.minutes }}</span>
-              <i>:</i>
-              <span class="item">{{ timeData.seconds }}</span>
-            </template>
-          </van-count-down>
-        </div>
-      </div>
-      -->
 
       <!-- 商品信息 -->
       <div class="productInfo">
@@ -84,7 +57,7 @@
         <img :src="goodsInfo.small_image"
              alt="">
         <!-- 统一说明图 -->
-        <img :src="goodsImage"
+        <img src="../../images/home/defaultImg.jpg"
              alt="">
       </div>
 
@@ -117,14 +90,8 @@ export default {
   },
   data () {
     return {
-      // 倒计时时间设置
-      //time: 30 * 60 * 1000 * 100,
-      // 是否是限时抢购
-      //isFlash: false,
       // 商品详情
       goodsInfo: this.$route.query,
-      // 商品统一说明图
-      goodsImage: 'https:\/\/img.ddimg.mobi\/3f280ff77ab3d1571213379189.jpg?width=750&height=1869'
     }
   },
   computed: {
@@ -174,55 +141,6 @@ export default {
         height: 80%;
       }
     }
-    /*
-    .flash {
-      display: flex;
-      flex: 1;
-      width: 100%;
-      height: 2rem;
-      line-height: 2rem;
-      .flashLeft {
-        width: 55%;
-        background-color: #e25450;
-        span {
-          font-size: 0.8rem;
-          color: #ffffff;
-          padding-left: 1rem;
-        }
-        i {
-          padding-left: 0.6rem;
-          font-size: 0.5rem;
-          color: #ffffff;
-        }
-      }
-      .flashRight {
-        width: 45%;
-        background-color: #fcefe9;
-        height: 2rem;
-        line-height: 2rem;
-        padding-left: 0.5rem;
-        font-size: 0.5rem;
-        color: #e25450;
-        .countStyle {
-          display: inline;
-          margin-left: 0.3rem;
-          .item {
-            display: inline-block;
-            width: 22px;
-            margin-right: 5px;
-            color: #fff;
-            font-size: 12px;
-            text-align: center;
-            background-color: #e25450;
-          }
-          i {
-            color: #e25450;
-            padding-right: 0.2rem;
-          }
-        }
-      }
-    }
-    */
     .productInfo {
       background-color: white;
       padding: 0.5rem;

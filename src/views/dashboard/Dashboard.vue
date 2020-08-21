@@ -36,8 +36,7 @@
 </template>
 
 <script type="text/javascript">
-import { setLocalStore, getLocalStore } from '@/config/global'
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'DashBoard',
@@ -49,7 +48,7 @@ export default {
   watch: {
     // 监听路由变化,保证路由跳转Tabbar选中正常
     $route: {
-      handler(val, oldval) {
+      handler(val) {
         this.tabbarSelected(val.name)
       }
     },
@@ -67,21 +66,6 @@ export default {
           normal: require('@/images/tabbar/home_default.png'),
           active: require('@/images/tabbar/home_selected.png')
         },
-        /*
-      {
-        name: 'category',
-        title: 'home.category',
-        normal: require('@/images/tabbar/category_default.png'),
-        active: require('@/images/tabbar/category_selected.png')
-      },
-
-      {
-        name: 'eat',
-        title: 'home.eat',
-        normal: require('@/images/tabbar/eat_default.png'),
-        active: require('@/images/tabbar/eat_selected.png')
-      },
-         */
         {
           name: 'cart',
           title: 'home.cart',
@@ -106,7 +90,7 @@ export default {
   },
 
   computed: {
-    ...mapState(['shopCart'], ['userInfo']),
+    ...mapState(['shopCart', 'userInfo']),
     goodsNum() {
       let num = 0
       Object.values(this.shopCart).forEach((goods, index) => {
@@ -135,8 +119,6 @@ export default {
     tabbarSelected(item) {
       const mapType = {
         home: 0,
-        //category: 1,
-        //eat: 2,
         cart: 1,
         mine: 2
       }

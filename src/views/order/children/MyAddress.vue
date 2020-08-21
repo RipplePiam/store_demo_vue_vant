@@ -20,6 +20,7 @@
     <!-- 联系人 -->
     <van-address-list v-model="chosenAddressId"
                       :list="shippingAddress"
+                      default-tag-text="默认"
                       @add="onAdd"
                       @edit="onEdit"
                       @select="onBackAddress"
@@ -36,10 +37,8 @@
 <script type="text/javascript">
 
 import { mapState, mapMutations } from 'vuex'
-import { Toast } from 'vant'
-import { getLocalStore } from './../../../config/global.js'
 // 引入发布订阅
-import { CHOOSE_USER_ADDRESS } from './../../../config/pubsub_type.js'
+import { CHOOSE_USER_ADDRESS } from '@/config/pubsub_type'
 import PubSub from 'pubsub-js'
 
 export default {

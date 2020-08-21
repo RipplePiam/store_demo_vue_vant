@@ -2,8 +2,7 @@ import {
     USER_INFO
 } from './mutation-type'
 import {
-    getLocalStore,
-    setLocalStore
+    getLocalStore
 } from '@/config/global'
 
 export default {
@@ -26,10 +25,5 @@ export default {
                 userInfo
             });
         }
-    },
-    setLanguage({
-        commit
-    }, language) {
-        commit("SET_LANGUAGE", language);
     }
 }

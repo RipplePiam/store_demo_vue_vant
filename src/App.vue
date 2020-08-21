@@ -29,9 +29,6 @@ window.onload = function () {
   width: 100%;
   height: 100%;
 }
-/** 解决 [Intervention] Unable to preventDefault 
-inside passive event listener due to target being treated as
-**/
 * {
   touch-action: pan-y;
 }

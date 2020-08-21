@@ -7,13 +7,8 @@ import state from '../store/state';
 
 // 懒加载二级组件 Tabbar
 const Home = () => import('../views/home/Home.vue');
-const Category = () => import('../views/category/Category.vue');//d
-const Eat = () => import('../views/eat/Eat.vue');//d
 const Cart = () => import('../views/cart/Cart.vue');
 const Mine = () => import('../views/mine/Mine.vue');
-
-// 地图
-const Map = () => import('../views/home/components/map/Map.vue');//d
 
 // 解决多次点击重复路由报错
 const originalPush = Router.prototype.push
@@ -25,20 +20,12 @@ Router.prototype.push = function push(location) {
 const UserCenter = () => import('../views/mine/Children/UserCenter.vue');
 // 修改用户昵称
 const ChangeNickName = () => import('../views/mine/Children/ChangeNickName.vue');
-// 优惠券
-const CouponList = () => import('../views/mine/Children/CouponList.vue')//d
-// 绿卡会员
-const MyVip = () => import('../views/mine/Children/MyVip.vue')//d
-// 会员支付
-const VipPay = () => import('../views/mine/Children/MyVipChildren/VipPay.vue')//d
 // 我的订单
 const MyOrder = () => import('../views/mine/Children/MyOrder');
 // 订单商品清单
 const OrderGoodsList = () => import('../views/order/children/OrderGoodsList')
 // 商品详情页
 const GoodsDetail = () => import('../components/goodsDetail/GoodsDetail.vue');
-// 语言切换
-const SwitchLanguage = () => import('../views/mine/Children/SwitchLanguage.vue');//d
 
 // 加载订单相关的组件
 const Order = () => import('../views/order/Order.vue');
@@ -55,17 +42,6 @@ const Login = () => import('../views/login/Login.vue');
 Vue.use(Router)
 
 const router = new Router({
-    // 解决路由跳转页面没有置顶
-    scrollBehavior(to, from, savedPosition) {
-        if (savedPosition) {
-            return savedPosition
-        } else {
-            return {
-                x: 0,
-                y: 0
-            }
-        }
-    },
     // !!注意: 二级路由不需要加 '/'
     routes: [
         {
@@ -100,26 +76,6 @@ const router = new Router({
                         keepAlive: true
                     }
                 },
-                {//d
-                    // 分类
-                    path: 'category',
-                    name: 'category',
-                    component: Category,
-                    // 是否数据缓存
-                    meta: {
-                        keepAlive: true
-                    },
-                },
-                {//d
-                    // 吃什么
-                    path: 'eat',
-                    name: 'eat',
-                    component: Eat,
-                    // 是否数据缓存
-                    meta: {
-                        keepAlive: true
-                    }
-                },
                 {
                     // 购物车
                     path: 'cart',
@@ -149,15 +105,6 @@ const router = new Router({
                                 }
                             ]
                         },
-                        {//d
-                            // 优惠券
-                            path: 'couponList',
-                            name: 'couponList',
-                            component: CouponList,
-                            meta: {
-                                requireAuth: true
-                            }
-                        },
                         {
                             // 我的订单
                             path: 'myOrder',
@@ -167,27 +114,6 @@ const router = new Router({
                                 requireAuth: true
                             }
                         },
-                        {//d
-                            // 绿卡会员
-                            path: 'myVip',
-                            name: 'myVip',
-                            component: MyVip,
-                            // 是否数据缓存
-                            meta: {
-                                keepAlive: true,
-                                requireAuth: true,
-                            }
-                        },
-                        {//d
-                            path: '/vipPay',
-                            name: 'vipPay',
-                            component: VipPay
-                        },
-                        {//d
-                            path: 'switchLanguage',
-                            name: 'switchLanguage',
-                            component: SwitchLanguage
-                        }
                     ]
                 },
                 {
@@ -195,11 +121,6 @@ const router = new Router({
                     path: '/goodsDetail',
                     name: 'goodsDetail',
                     component: GoodsDetail
-                },
-                {//d
-                    path: 'map',
-                    name: 'map',
-                    component: Map,
                 }
             ]
         },
