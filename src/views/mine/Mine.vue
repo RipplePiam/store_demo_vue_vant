@@ -134,7 +134,7 @@ export default {
   methods: {
     // 跳转到我的订单
     goTomyOrder (index) {
-      return this.$router.push({ name: "myOrder", params: { active: index + 1 } });//add
+      this.$router.push({ name: "myOrder", params: { active: index + 1 } });//add
       /*if (index !== 3) {
         return this.$router.push({ name: "myOrder", params: { active: index + 1 } });
       }

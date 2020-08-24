@@ -133,3 +133,7 @@ Vue.use(Col).use(Row)
 // 33.商品卡片
 import { Card } from 'vant';
 Vue.use(Card);
+
+// 34.折叠面板
+import { Collapse, CollapseItem } from 'vant';
+Vue.use(Collapse).use(CollapseItem);

@@ -4,8 +4,10 @@
  -->
 <template>
   <div id="login">
+    <!--圆矩形登录框-->
     <div class="loginBox"
-         @click="changeImage(3)">
+         @click="changeImage(3)"><!--单击换回正常图片-->
+      <!--认证表单-->
       <div class="auth-form">
         <div class="panfish">
           <img :src="imageURL"
@@ -15,8 +17,11 @@
         <van-icon name="close"
                   class="closeButton"
                   @click="close" />
+        <!--标签页-->
         <van-tabs v-model="active"
-                  animated>
+                  animated
+                  swipeable>
+          <!-- 登录 -->
           <van-tab :title="$t('login.title')">
             <!-- 账号密码登录 -->
             <van-cell-group v-show="!isShowSMSLogin">
@@ -32,6 +37,7 @@
                          type="password"
                          :label="$t('login.pass')"
                          :placeholder="$t('login.passTip')"
+                         clearable
                          required
                          @click.stop="changeImage(1)"
                          autocomplete />
@@ -54,12 +60,14 @@
                          required
                          clearable
                          maxlength="11"
+                         @click.stop="changeImage(0)"
                          :label="$t('login.phoneNumber')"
                          :placeholder="$t('login.phoneInput')"
                          :error-message="phoneNumberRight?'':$t('login.phoneNumberNotCorrect')" />
               <van-field center
                          clearable
                          required
+                         @click.stop="changeImage(1)"
                          :label="$t('login.varify')"
                          maxlength="6"
                          v-model="smsCaptcha"
@@ -75,7 +83,7 @@
                             type="primary"
                             disabled=""
                             v-model="smsCaptcha"
-                            v-else>{{$t('login.hasSend')}}{{countDown}}s</van-button>
+                            v-else>{{$t('login.hasSend')}}{{countDown}}s</van-button><!--倒计时-->
               </van-field>
             </van-cell-group>
             <van-button type="info"
@@ -91,13 +99,16 @@
               <van-field v-model="register_userName"
                          clearable
                          maxlength="11"
+                         @click.stop="changeImage(0)"
                          :label="$t('login.phoneNumber')"
                          :placeholder="$t('login.phoneInput')"
-                         required />
+                         required/>
               <van-field v-model="register_pwd"
                          type="password"
+                         @click.stop="changeImage(1)"
                          :label="$t('login.pass')"
                          :placeholder="$t('login.passTip2')"
+                         clearable
                          required />
             </van-cell-group>
             <van-button type="info"
@@ -106,11 +117,13 @@
                         @click='register'>{{$t('login.resgin')}}</van-button>
           </van-tab>
         </van-tabs>
-
         <!-- 底部声明 -->
-        <p class="agreement"> {{$t('login.tipTile')}}<br>{{$t('login.tipContent')}}<a @click.stop="agreement(0)"
-             class="agreement-box">{{$t('login.tip')}}</a>、<a @click.stop=agreement(1)
-             class="agreement-box">{{$t('login.tipProcy')}}</a></p>
+        <p class="agreement"> {{$t('login.tipTile')}}<br>{{$t('login.tipContent')}}
+          <a @click.stop="agreement(0)"
+             class="agreement-box">{{$t('login.tip')}}</a>、
+          <a @click.stop=agreement(1)
+             class="agreement-box">{{$t('login.tipProcy')}}</a>
+        </p>
       </div>
     </div>
   </div>
@@ -330,73 +343,69 @@ export default {
   bottom: 0;
   background: url("../../images/login/back3.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
   background-attachment: fixed;
-  .loginBox {
+  background-size: 100% 100%;
+  .loginBox { // 圆矩形登录框
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
-    opacity: 0.95;
+    opacity: 1;  // 不透明度
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 500;
-    .auth-form {
-      position: relative;
-      padding: 2rem;
-      width: 26.5rem;
-      max-width: 90%;
+    .auth-form { // 认证信息组件
+      position: relative;//相对位置
+      padding: 2rem;//填充
+      width: 90%;
+      //max-width: 90%;
       font-size: 1.167rem;
       background-color: #fff;
       border-radius: 8px;
       box-sizing: border-box;
-    }
-    img {
-      position: absolute;
-      top: 1rem;
-      left: 50%;
-      width: 4rem;
-      transform: translate(-50%, -70%);
-      z-index: 1;
-      @media screen and (max-width: 320px) {
-        top: 0.5rem;
-        transform: translate(-50%, -40%);
-        width: 5rem;
+
+      .closeButton { //关闭按钮
+        position: absolute;
+        right: 1rem;
+        top: 0.4rem;
+      }
+      img { //熊猫图片
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        width: 4rem;
+        transform: translate(-50%, -70%);
+        z-index: 1;
+        @media screen and (max-width: 320px) {
+          top: 0.5rem;
+          transform: translate(-50%, -40%);
+          width: 5rem;
+        }
+      }
+      .verificationImage { // 验证码图片
+        position: absolute;
+        right: 0;
+        width: 8rem;
+        height: 3rem;
+        margin-left: 3rem;
+      }
+      .switchLogin {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: blue;
+      }
+      .agreement {
+        line-height: 1rem;
+        color: #767676;
+        font-size: 0.867rem;
+        .agreement-box {
+          color: blue;
+        }
       }
     }
-    .closeButton {
-      position: absolute;
-      right: 1rem;
-      top: 0.4rem;
-    }
-    .verificationImage {
-      position: absolute;
-      right: 0;
-      width: 8rem;
-      height: 3rem;
-      margin-left: 3rem;
-    }
-    .switchLogin {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-      color: blue;
-    }
-  }
-}
-.title {
-  padding: 0.5rem;
-  font-size: 0.5rem;
-  color: grey;
-}
-.agreement {
-  line-height: 1rem;
-  color: #767676;
-  font-size: 0.867rem;
-  .agreement-box {
-    color: blue;
   }
 }
 </style>

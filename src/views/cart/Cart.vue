@@ -14,7 +14,7 @@
            @click="clearCart"
            v-show="isShowEmptyCart">{{$t('car.delete')}}</div>
     </header>
-    <!-- 购物车没有商品 -->
+
     <div class="cartWrapper">
       <!-- 购物车为空 -->
       <div class="emptyCart"
@@ -60,21 +60,24 @@
           </section>
         </div>
         <!-- 提交订单 -->
-        <van-submit-bar :price="totalPrice"
-                        :button-text="submitBarText"
-                        @submit="onSubmit"
-                        :disabled="!(selectedGoodNum>0)"
-                        v-show="isShowEmptyCart">
+        <van-submit-bar
+            :price="totalPrice"
+            :button-text="submitBarText"
+            @submit="onSubmit"
+            :disabled="!(selectedGoodNum>0)"
+            v-show="isShowEmptyCart">
           <van-checkbox v-model="isCheckedAll"
                         checked-color='#45c763'>{{$t('car.all')}}</van-checkbox>
         </van-submit-bar>
       </div>
+      <!--猜你喜欢-->
       <van-divider :style="{ color: 'black', borderColor: 'grey', padding: '0 16px' }">
         {{$t('car.guess')}}
       </van-divider>
       <!-- 商品详情组件 需要注意下底部是否被遮盖 动态设置padding-bottom -->
       <produceItem :product_lists="youLike_product_lists"
                    :style="isShowEmptyCart?'padding-bottom:5.5rem':'padding-bottom:3rem'" />
+                    <!--填充底部-->
     </div>
     <!-- 回到顶部组件 -->
     <v-top />
@@ -265,20 +268,8 @@ export default {
     width: 100%;
     height: 100rem;
     margin-top: 2.6rem;
-    @media screen and (min-width: 300px) and(max-width: 374px) {
-      .van-submit-bar {
-        bottom: 3.3rem;
-      }
-    }
-    @media screen and (min-width: 375px) and(max-width: 420px) {
-      .van-submit-bar {
-        bottom: 2.7rem;
-      }
-    }
-    @media screen and (min-width: 420px) and(max-width: 1024px) {
-      .van-submit-bar {
-        bottom: 1.4rem;
-      }
+    .van-submit-bar {
+      bottom: 50px;
     }
     .emptyCart {
       display: flex;

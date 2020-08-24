@@ -5,6 +5,7 @@ import Router from 'vue-router'
 import Dashboard from '../views/dashboard/Dashboard.vue'
 import state from '../store/state';
 
+
 // 懒加载二级组件 Tabbar
 const Home = () => import('../views/home/Home.vue');
 const Cart = () => import('../views/cart/Cart.vue');
@@ -21,24 +22,22 @@ const UserCenter = () => import('../views/mine/Children/UserCenter.vue');
 // 修改用户昵称
 const ChangeNickName = () => import('../views/mine/Children/ChangeNickName.vue');
 // 我的订单
-const MyOrder = () => import('../views/mine/Children/MyOrder');
+const MyOrder = () => import('../views/MyOrder/MyOrder');
 // 订单商品清单
 const OrderGoodsList = () => import('../views/order/children/OrderGoodsList')
 // 商品详情页
 const GoodsDetail = () => import('../components/goodsDetail/GoodsDetail.vue');
-
 // 加载订单相关的组件
 const Order = () => import('../views/order/Order.vue');
 const MyAddress = () => import('../views/order/children/MyAddress.vue');
 const AddAddress = () => import('../views/order/children/children/AddAddress.vue');
 const EditAddress = () => import('../views/order/children/children/EditAddress.vue');
-
-// 支付相关
-// 支付成功页
+// 支付相关组件
 const Payment = () => import('../views/payment/Payment')
-
 // 注册登录
 const Login = () => import('../views/login/Login.vue');
+
+
 Vue.use(Router)
 
 const router = new Router({
@@ -61,7 +60,8 @@ const router = new Router({
                 {
                     path: '/dashboard',
                     redirect: '/dashboard/home',
-                    // 是否数据缓存
+                    // 是否数据缓存 副作用：滚动条位置同步
+                    // keep-alive 是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染
                     meta: {
                         keepAlive: true
                     },
@@ -71,7 +71,7 @@ const router = new Router({
                     path: 'home',
                     name: 'home',
                     component: Home,
-                    // 是否数据缓存
+                    // 是否数据缓存 从api获取的数据
                     meta: {
                         keepAlive: true
                     }
@@ -81,6 +81,7 @@ const router = new Router({
                     path: 'cart',
                     name: 'cart',
                     component: Cart,
+                    // 是否数据缓存
                     meta: {
                         keepAlive: true
                     }
@@ -104,16 +105,7 @@ const router = new Router({
                                     component: ChangeNickName
                                 }
                             ]
-                        },
-                        {
-                            // 我的订单
-                            path: 'myOrder',
-                            name: 'myOrder',
-                            component: MyOrder,
-                            meta: {
-                                requireAuth: true
-                            }
-                        },
+                        }
                     ]
                 },
                 {
@@ -136,7 +128,7 @@ const router = new Router({
                     name: 'myAddress',
                     component: MyAddress,
                     meta: {
-                        requireAuth: true
+                        requireAuth: true// 身份验证
                     },
                     children: [
                         {
@@ -162,8 +154,17 @@ const router = new Router({
             ]
         },
         {
+            // 我的订单
+            path: '/myOrder',
+            name: 'myOrder',
+            component: MyOrder,
+            meta: {
+                requireAuth: true   // 身份验证
+            }
+        },
+        {
             // 支付相关
-            path: '/payment/Payment',
+            path: '/Payment',
             name: 'Payment',
             component: Payment,
         },

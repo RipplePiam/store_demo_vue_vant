@@ -150,7 +150,7 @@ export default {
         font-size: 0.8rem;
         padding: 0.3rem 0;
         white-space: nowrap;
-        text-overflow: ellipsis;
+        text-overflow: ellipsis; //省略
         overflow: hidden;
       }
       .subParam {

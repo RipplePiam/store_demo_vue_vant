@@ -112,9 +112,9 @@ export default {
     mark: '备注',
     tip: '选填,可以告诉我们您的特殊需求',
     goodsList: '商品清单',
-
+    order: '订单',
     totalMoney: '商品金额',
-
+    finalPrice: '实付总价',
     sendMoney: '配送费',
     point: '积分',
     order19: '实付',
@@ -145,7 +145,7 @@ export default {
     phoneNumberNotEmpty: '手机号不能为空',
     passNumberNotEmpty: '密码不能为空',
     phoneInput: '请输入手机号',
-    pass: '密码',
+    pass: '密\u3000码', // 中文全角空格占位
     passTip: '请输入密码',
     varify: '验证码',
     tipTile: '温馨提示：',
@@ -154,7 +154,7 @@ export default {
     tipProcy: '隐私策略',
     login: '登录',
     resgin: '注册',
-    passTip2: '请输入密码(不少于6位)',
+    passTip2: '请输入密码(6位以上)',
     sendVerify: '发送验证码',
     hasSend: '已发送',
     phoneVerify: '账号密码登录',

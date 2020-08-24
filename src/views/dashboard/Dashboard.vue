@@ -29,8 +29,10 @@
 
     <!-- 缓存界面选择加载 -->
     <keep-alive>
+      <!--需被缓存的视图组件-->
       <router-view v-if="$route.meta.keepAlive" />
     </keep-alive>
+      <!--不被缓存的视图组件-->
       <router-view v-if="!$route.meta.keepAlive" />
   </div>
 </template>

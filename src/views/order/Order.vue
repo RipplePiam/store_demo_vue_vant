@@ -262,12 +262,6 @@ export default {
         // 6.2 添加到已购订单|写入订单数据（订单id√，已购商品√，订单地址√，订单总价√，备注√，支付方式√）
         let id;
         id = this.orderUUID().toString();
-        console.log('id:',id);
-        console.log('orderAddress',this.shippingAddress.find(item => item.id === this.address_id));
-        console.log('products',this.goods);
-        console.log('paymentMethod',this.radio);
-        console.log('message',this.message);
-        console.log('actualPrice',this.actualPrice);
 
         let orderID,content={orderID};
         content['orderID'] = id;
@@ -275,7 +269,7 @@ export default {
         content['products'] = this.goods;
         content['paymentMethod'] =this.radio;
         content['message'] = this.message;
-        content['actualPrice'] = this.actualPrice;
+        content['finalPrice'] = this.actualPrice;
         this.ADD_TO_ORDER({
           content
         });
@@ -288,7 +282,7 @@ export default {
         // 5.4 显示订单支付情况
         setTimeout(() => {
           instance.close();
-          this.$router.push('../payment/Payment');
+          this.$router.push('../Payment');
         },1500)
       }
     }
@@ -317,7 +311,7 @@ export default {
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
-      justify-content: start;
+      justify-content: flex-start;
       height: 4rem;
       width: 80%;
       overflow: hidden;

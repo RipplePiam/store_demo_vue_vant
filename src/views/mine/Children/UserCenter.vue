@@ -79,6 +79,7 @@
   </div>
 
 </template>
+
 <script type="text/javascript">
 
 import { mapState, mapMutations, mapGetters } from 'vuex'

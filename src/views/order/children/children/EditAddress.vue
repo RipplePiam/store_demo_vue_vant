@@ -10,7 +10,6 @@
                  :border=true
                  @click-left="onClickLeft"></van-nav-bar>
     <van-address-edit :area-list="areaList"
-                      show-postal
                       show-delete
                       show-set-default
                       show-search-result

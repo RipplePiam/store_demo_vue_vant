@@ -11,7 +11,6 @@
                  @click-left="onClickLeft"></van-nav-bar>
     <!--AddressEdit 地址编辑，返回参数：content(表单内容)-->
     <van-address-edit :area-list="areaList"
-                      show-postal
                       show-set-default
                       show-search-result
                       :search-result="searchResult"
