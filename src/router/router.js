@@ -4,6 +4,7 @@ import Router from 'vue-router'
 // 引入一级组件
 import Dashboard from '../views/dashboard/Dashboard.vue'
 import state from '../store/state';
+import {Toast} from "vant";
 
 
 // 懒加载二级组件 Tabbar
@@ -183,9 +184,14 @@ router.beforeEach((to, from, next) => {
         if (state.userInfo.token) {
             next()
         } else {
-            next({
-                path: '/login'
-            })
+            let instance = Toast('请先登录');
+            setTimeout(() => {
+                instance.close();
+                next({
+                    path: '/login'
+                })
+            },1500)
+
         }
     } else {
         next()

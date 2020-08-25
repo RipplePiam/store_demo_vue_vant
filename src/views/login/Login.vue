@@ -36,7 +36,7 @@
               <van-field v-model="login_password"
                          type="password"
                          :label="$t('login.pass')"
-                         :placeholder="$t('login.passTip')"
+                         :placeholder="$t('login.passholder')"
                          clearable
                          required
                          @click.stop="changeImage(1)"
@@ -107,7 +107,7 @@
                          type="password"
                          @click.stop="changeImage(1)"
                          :label="$t('login.pass')"
-                         :placeholder="$t('login.passTip2')"
+                         :placeholder="$t('login.passholder')"
                          clearable
                          required />
             </van-cell-group>
@@ -169,7 +169,7 @@ export default {
         return true;
       }
     },
-    // 2.发送验证码按钮显示
+    // 2.发送验证码按钮可用状态
     captchaDisable () {
       return !(this.login_phone.length > 10 && this.phoneNumberRight);
     }
@@ -223,9 +223,16 @@ export default {
     // 5.登录
     async login () {
       if (this.isShowSMSLogin) {
+
         // 5.1手机验证码登录
         // 5.1.1 验证手机号
-        if (!this.phoneNumberRight || this.login_phone.length < 10) {
+        if (this.login_phone.length < 1) {
+          Toast({
+            message: this.$t('login.phoneNumberNotEmpty'),
+            duration: 800
+          });
+          return;
+        } else if (!this.phoneRegex(this.login_phone)) {
           Toast({
             message: this.$t('login.pleaseInputCorrectPhoneNumber'),
             duration: 800
@@ -245,11 +252,12 @@ export default {
         this.syncuserInfo(ref.data);
         this.$router.back();
       } else {
+
         // 5.2 账号密码登录
         // 5.2.1 验证输入框
         if (this.login_userName.length < 1) {
           Toast({
-            message: this.$t('login.phoneNumber'),
+            message: this.$t('login.phoneNumberNotEmpty'),
             duration: 800
           });
           return;
@@ -259,13 +267,19 @@ export default {
             duration: 800
           });
           return;
-        } else if (this.login_password.length < 1) {
+        }else if (this.login_password.length < 1) {
           Toast({
-            message: this.$t('login.passNumberNotCorrect'),
+            message: this.$t('login.passTip'),
             duration: 800
           });
           return;
-        } else if (this.imgCaptcha.length < 1) {
+        } else if (this.login_password.length < 6) {
+          Toast({
+            message: this.$t('login.passTip2'),
+            duration: 800
+          });
+          return;
+        }else if (this.imgCaptcha.length < 4) {
           Toast({
             message: this.$t('login.pleaseInputCorrectVerifyNumber'),
             duration: 800
@@ -290,7 +304,7 @@ export default {
           message: this.$t('login.phoneNumberNotCorrect'),
           duration: 800
         })
-      } else if (this.register_pwd.length < 0) {
+      } else if (this.register_pwd.length < 1) {
         Toast({
           message: this.$t('login.passTip'),
           duration: 800

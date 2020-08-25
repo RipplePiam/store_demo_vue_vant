@@ -37,7 +37,7 @@ export default {
     cart: '购物车',
     mine: '我的',
     foodie: '吃货节',
-    dinner: '晚餐',
+    dinner: '美味',
     popularity: '人气',
     goodChoose: '心选',
     bottomTip: '我是有底线的'
@@ -154,7 +154,8 @@ export default {
     tipProcy: '隐私策略',
     login: '登录',
     resgin: '注册',
-    passTip2: '请输入密码(6位以上)',
+    passTip2: '请输入6位以上密码',
+    passholder: '请输入密码(6位以上)',
     sendVerify: '发送验证码',
     hasSend: '已发送',
     phoneVerify: '账号密码登录',
@@ -162,7 +163,7 @@ export default {
     switchLoginMsg: '账号密码登录',
     messageSuccess: '验证码获取成功,请在输入框输入',
     pleaseInputCorrectPhoneNumber: '请输入正确的手机号',
-    pleaseInputCorrectVerifyumber: '请输入正确的验证码',
+    pleaseInputCorrectVerifyNumber: '请输入正确的验证码',
     message: '验证码:'
   }
 }

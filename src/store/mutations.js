@@ -327,8 +327,13 @@ export default {
                 })
             }, 900);
         } else {
-            // 1.4 如何没有登录跳转到登录界面
-            router.push('/login');
+            let instance = Toast('请先登录');
+            setTimeout(() => {
+                instance.close();
+                // 1.4 如何没有登录跳转到登录界面
+                router.push('/login');
+            },1500)
+
         }
     },
 
