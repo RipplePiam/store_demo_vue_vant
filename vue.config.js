@@ -14,8 +14,8 @@ module.exports = {
       // 配置跨域处理 可以设置多个
       '/api': {
         target:
-        ' https://www.easy-mock.com/mock/5f3ff29c4f4b0f4387f90cdd/api',
-        //'http://api.7-orange.cn:7300/mock/5def6a2d448e330a1116366e/api/', //备用接口
+        //'https://www.easy-mock.com/mock/5f3ff29c4f4b0f4387f90cdd/api', // 官网建立的数据库接口，非常容易崩
+        'http://api.7-orange.cn:7300/mock/5def6a2d448e330a1116366e/api/', // 阿里云建立的数据库接口1
         ws: true,
         changeOrigin: true
       }
