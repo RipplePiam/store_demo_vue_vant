@@ -9,7 +9,7 @@ import {
     USER_INFO,
     INIT_USER_INFO,
     CHANGE_USER_NICK_NAME,
-    USER_INFO_BRITHDAY,
+    USER_INFO_BIRTHDAY,
     USER_INFO_SEX,
     LOGIN_OUT,
     INIT_USER_SHOPPING_ADDRESS,
@@ -215,18 +215,18 @@ export default {
     },
 
     // 10.用户生日
-    [USER_INFO_BRITHDAY](state, {
-        brithday
+    [USER_INFO_BIRTHDAY](state, {
+        birthday
     }) {
         // 10.1 取出state中的用户信息
         let userInfo = state.userInfo;
         // 10.2 遍历userInfo的value值
         Object.values(userInfo).forEach((info, index) => {
             // 10.3 判断是否有brithday
-            if (info.brithday) {
-                info.brithday = brithday;
+            if (info.birthday) {
+                info.birthday = birthday;
             } else {
-                Vue.set(userInfo, 'brithday', brithday);
+                Vue.set(userInfo, 'birthday', birthday);
             }
         });
         // 10.4 同步state数据

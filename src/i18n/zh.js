@@ -83,7 +83,7 @@ export default {
     head: '头像',
     user_name: '昵称',
     userSex: '性别',
-    Brithday: '生日',
+    Birthday: '生日',
     phoneNumber: '手机号',
     noInput: '未填写',
     logout: '退出登录',

@@ -14,7 +14,8 @@ module.exports = {
       // 配置跨域处理 可以设置多个
       '/api': {
         target:
-          'http://api.7-orange.cn:7300/mock/5def6a2d448e330a1116366e/api/',
+        //'http://47.100.173.139:7300/mock/5f48e54e4ad59c083de09b05/api/',
+        'http://api.7-orange.cn:7300/mock/5def6a2d448e330a1116366e/api/',
         ws: true,
         changeOrigin: true
       }

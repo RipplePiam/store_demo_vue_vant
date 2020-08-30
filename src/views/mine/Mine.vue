@@ -83,7 +83,7 @@
                 is-link
                 @click="onFeedBack" />
     </van-cell-group>
-
+    <!--版本信息-->
     <div class="version">{{$t('mine.version')}}{{version}}</div>
     <!--路由的出口-->
     <transition name="router-slider"

@@ -25,7 +25,7 @@ export const INIT_USER_INFO = 'INIT_USER_INFO';
 // 13.修改用户昵称
 export const CHANGE_USER_NICK_NAME = 'CHANGE_USER_NICK_NAME';
 // 14.用户生日
-export const USER_INFO_BRITHDAY = 'USER_INFO_BRITHDAY';
+export const USER_INFO_BIRTHDAY = 'USER_INFO_BIRTHDAY';
 // 15.用户性别
 export const USER_INFO_SEX = 'USER_INFO_SEX';
 // 16.性别

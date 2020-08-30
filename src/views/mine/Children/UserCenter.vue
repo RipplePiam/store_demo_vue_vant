@@ -24,10 +24,10 @@
                 is-link
                 :value="userSex"
                 @click="onChangeSex" />
-      <van-cell :title="$t('mine.Brithday')"
+      <van-cell :title="$t('mine.Birthday')"
                 is-link
-                @click="selectBrithday"
-                :value="userInfo.brithday?userInfo.brithday:$t('mine.noInput')" />
+                @click="selectBirthday"
+                :value="userInfo.birthday?userInfo.birthday:$t('mine.noInput')" />
       <van-cell :title="$t('mine.phoneNumber')"
                 :value="phoneNumber" />
     </van-cell-group>
@@ -115,7 +115,7 @@ export default {
 
   },
   methods: {
-    ...mapMutations(['USER_INFO_BRITHDAY', 'LOGIN_OUT', 'USER_INFO_SEX']),
+    ...mapMutations(['USER_INFO_BIRTHDAY', 'LOGIN_OUT', 'USER_INFO_SEX']),
     // 返回
     onClickLeft () {
       this.$router.back();
@@ -146,7 +146,7 @@ export default {
       }, 300);
     },
     // 选择生日
-    selectBrithday () {
+    selectBirthday () {
       this.showDateTimePopView = true;
     },
     // 格式化DateTime pickView
@@ -162,9 +162,8 @@ export default {
     },
     // DateTime pcikView 确定
     confirm (value) {
-      let brithday = Moment(value).format("YYYY-MM-DD");
-      this.brithdayText = brithday;
-      this.USER_INFO_BRITHDAY({ brithday });
+      let birthday = Moment(value).format("YYYY-MM-DD");
+      this.USER_INFO_BIRTHDAY({ birthday });
       this.showDateTimePopView = false;
       Toast({
         message: this.$t('mine.infoTip'),
