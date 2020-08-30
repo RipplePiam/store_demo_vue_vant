@@ -12,11 +12,11 @@
 ## 如何运行
 
 ```bash
-# 克隆项目到本地
 
 # 进入项目目录
+cd store_demo_vue_vant
 
-# 安装依赖
+# 安装依赖(若使用国内镜像请用cnpm）
 npm install
 
 # 启动服务
