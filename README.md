@@ -5,7 +5,6 @@
 
 ## 前序准备
 
-
 你需要在本地安装 [node](http://nodejs.org/) 和 [git](https://git-scm.com/)。本项目技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[vue](https://cn.vuejs.org/index.html)、[vuex](https://vuex.vuejs.org/zh-cn/)、[vue-router](https://router.vuejs.org/zh-cn/) 、[vue-cli](https://github.com/vuejs/vue-cli) 、[axios](https://github.com/axios/axios) 和 [vant-ui](https://youzan.github.io/vant/#/zh-CN/intro)，所有的请求数据都使用[Mock.js](https://github.com/nuysoft/Mock)进行模拟。
 
 
@@ -32,8 +31,8 @@ npm run serve
 npm run build
 ```
 
-
-## MIT许可协议
+## 状态
+目前由于服务器到期，未继续支持数据返回，如需演示请自行搭建Emock服务。
 
 ## 声明
 
